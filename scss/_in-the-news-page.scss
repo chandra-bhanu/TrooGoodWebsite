@@ -1,0 +1,938 @@
+.in-the-news-page{
+    .section__in-the-news_hero{
+        background-color: $color-bg-purple;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 0px 60px;
+        @include xxl {
+            padding: 0 130px 0 165px;
+        }
+        @include breakpoint(1366) {
+            padding: 0 80px;
+        }
+        @include xl {
+            display: block;
+            padding: 160px 80px;
+        }
+        @include md {
+            padding: 140px 80px;
+        }
+        @include sm {
+            padding: 150px 28px;
+        }
+        h1, h1 > .char{
+            text-transform: uppercase;
+            font-family: $f_extrabold;
+            font-size: 320px;
+            line-height: 300px;
+            color: var(--white-pure);
+            letter-spacing: 0.05em;
+            overflow: hidden;
+            @include breakpoint-dpr2-up {
+                font-size: 280px;
+                line-height: 260px;
+            }
+            @include breakpoint-dpr-down(1540, 2) {
+                font-size: 240px;
+                line-height: 220px;
+            }
+            @include xxl {
+                font-size: 210px;
+                line-height: 200px;
+            }
+            @include xl {
+                font-size: 190px;
+                line-height: 180px;
+            }
+            @include lg {
+                font-size: 170px;
+                line-height: 160px;
+            }
+            @include md {
+                font-size: 160px;
+                line-height: 150px;
+            }
+            @include sm {
+                font-size: 100px;
+                line-height: 95px;
+            }
+            @include xsm {
+                font-size: 92px;
+                line-height: 84px;
+            }
+            @include xxsm {
+                font-size: 86px;
+                line-height: 80px;
+            }
+        }
+        .section__in-the-news_hero-title{
+            &__right{
+                padding: 220px 30px;
+                z-index: 1;
+                @include xxl {
+                    padding: 260px 10px;
+                }
+                @include breakpoint(1366) {
+                    padding: 140px 20px;
+                }
+                @include xl {
+                    padding: 0px 0px;
+                }
+                h1, h1 > .char{
+                    &.highlighted{
+                        font-size: 340px;
+                        letter-spacing: normal;
+                        padding-left: 40px;
+                        @include breakpoint-dpr2-up {
+                            font-size: 300px;
+                        }
+                        @include breakpoint-dpr-down(1540, 2) {
+                            font-size: 260px;
+                        }
+                        @include xxl {
+                            font-size: 220px;
+                        }
+                        @include breakpoint(1366) {
+                            padding-left: 30px;
+                        }
+                        @include lg {
+                            padding-left: 0px;
+                        }
+                        @include sm {
+                            font-size: 110px;
+                        }
+                    }
+                }
+            }
+        }
+        .section__in-the-news_hero-image{
+            position: absolute;
+            left: 9%;
+            img{
+                height: 100vh;
+                @include xl {
+                    height: 80vh;
+                }
+            }
+            @include xxl {
+                left: 12%;
+            }
+            @include xl {
+                top: 0;
+            }
+        }
+    }
+    .section__in-the-news_articles{
+        position: relative;
+        // clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%);
+        @include xl {
+            height: 42vh;
+        }
+        @include breakpoint-dpr-down(850, 2) {
+            height: 44vh;
+        }
+        @include md {
+            height: 50vh;
+        }
+        @include sm {
+            height: 85vh;
+        }
+        @include xsm {
+            height: 102vh;
+        }
+        @include breakpoint-dpr-down(414, 2) {
+            height: 90vh;
+        }
+        @include xxsm {
+            height: 94vh;
+        }
+        @include breakpoint-dpr-down(380, 2) {
+            height: 115vh;
+        }
+        &__bg{
+            background-color: $color-bg-purple;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            height: 65vh;
+            @include xl {
+                height: 25vh;
+            }
+            @include sm {
+                height: 38vh;
+            }
+            @include xsm {
+                height: 40vh;
+            }
+            @include xxsm {
+                height: 45vh;
+            }
+        }
+        &__wrap{
+            position: relative;
+            padding: 0px 60px 120px;
+            z-index: 1;
+            @include breakpoint-dpr2-up {
+                padding: 0px 40px 120px;
+            }
+            @include breakpoint-dpr-down(1540, 2) {
+                padding: 0px 20px 80px;
+            }
+            @include sm {
+                padding: 0px 0px 40px;
+            }
+            .section__in-the-news_articles_intro{
+                padding: 120px 0px 40px 80px;
+                z-index: 2;
+                position: relative;
+                background: var(--color-purple);
+                @include breakpoint-dpr2-up {
+                    padding: 140px 0px 60px 80px;
+                }
+                @include breakpoint-dpr-down(1540, 2) {
+                    padding: 80px 0px 30px 80px;
+                }
+                @include xxl {
+                    padding: 120px 0px 85px 80px;
+                }
+                @include breakpoint(1366) {
+                    padding: 60px 0px 20px 40px;
+                }
+                @include xl {
+                    padding: 40px 0px 10px 40px;
+                }
+                @include sm {
+                    padding: 20px 0px 60px 20px;
+                }
+                h2{
+                    font-family: $f_regular;
+                    font-size: 36px;
+                    line-height: 54px;
+                    color: var(--white-pure);
+                    padding: 0px 40px;
+                    max-width: 75%;
+                    @include breakpoint-dpr2-up {
+                        max-width: 85%;
+                    }
+                    @include breakpoint-dpr-down(1540, 2) {
+                        font-size: 32px;
+                        line-height: 48px;
+                        max-width: 95%;
+                    }
+                    @include xxl {
+                        padding: 0px 60px;
+                        max-width: 90%;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 26px;
+                        line-height: 38px;
+                        max-width: 85%;
+                    }
+                    @include xl {
+                        font-size: 24px;
+                        line-height: 34px;
+                        max-width: 92%;
+                    }
+                    @include breakpoint-dpr-down(850, 2) {
+                        padding: 0px 0px;
+                        font-size: 22px;
+                        line-height: 32px;
+                        max-width: 92%;
+                    }
+                    @include sm {
+                        padding: 0px 20px;
+                        font-size: 18px;
+                        line-height: 28px;
+                        max-width: 100%;
+                    }
+                }
+            }
+            .news_articles{
+                padding: 0px 60px 0px;
+                @include xl {
+                    padding: 0px 20px 0px;
+                }
+                @include sm {
+                    padding: 0px 10px 0px;
+                }
+                .section__in-the-news_articles-slide{
+                    display: flex;
+                    justify-content: space-between;                    
+                    @include sm {
+                        flex-direction: column;
+                        // gap: 10px;
+                    }
+                    .section__in-the-news_article{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        margin-right: 30px;
+                        width: 100%;
+                        max-width: 540px;
+                        overflow: hidden;
+                        @include xl {
+                            margin-right: 20px;
+                        }
+                        a{                 
+                            @include sm {
+                                display: flex; 
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                margin-right: 0px;
+                                margin-bottom: 10px;
+                            }
+                        }                        
+                        &:last-child{
+                            margin-right: 40px;
+                            a{                 
+                                @include sm {
+                                    margin-right: 0px;
+                                    margin-bottom: 20px;
+                                }
+                            }
+                        }
+                        &_image{
+                            z-index: 1;
+                            position: relative;                            
+                            img{
+                                width: 100%;
+                                object-fit: cover;
+                                transition: transform 0.2s linear;
+                                @include sm {
+                                    width: 210px;
+                                    height: 100%;
+                                    height: -moz-fill-available;
+                                    height: -webkit-fill-available;
+                                    height: fill-available;
+                                }
+                                @include xsm {
+                                    width: 190px;
+                                }
+                            }
+                        }
+                        &_content{
+                            background-color: var(--black-pure);
+                            padding: 35px 100px 0px 40px;
+                            min-height: 220px;
+                            z-index: 2;
+                            position: relative;
+                            @include breakpoint-dpr2-up {
+                                padding: 35px 80px 0px 40px;
+                            }
+                            @include breakpoint-dpr-down(1540, 2) {
+                                padding: 30px 40px 0px 40px;
+                            }
+                            @include xxl {
+                                padding: 20px 20px 0px 40px;
+                            }
+                            @include breakpoint(1366) {
+                                min-height: 160px;
+                                padding: 10px 10px 0px 20px;
+                            }
+                            @include sm {
+                                padding: 10px 0px 0px 15px;
+                            }
+                            @include xsm {
+                                min-height: 155px;
+                            }
+                            h2{
+                                font-family: $f_medium;
+                                font-size: 32px;
+                                line-height: 44px;
+                                color: var(--white-pure);
+                                @include xxl {
+                                    font-size: 28px;
+                                    line-height: 38px;
+                                }
+                                @include breakpoint(1366) {
+                                    font-size: 22px;
+                                    line-height: 32px;
+                                }
+                                @include xl {
+                                    font-size: 18px;
+                                    line-height: 28px;
+                                }
+                                @include sm {
+                                    font-size: 14px;
+                                    line-height: 22px;
+                                }
+                            }
+                        }
+                        &:hover{
+                            .section__in-the-news_article_image{
+                                img{
+                                    transform: scale(1.05);
+                                    transition: transform 0.4s ease-out;
+                                }
+                            }
+                        }
+                    }
+                    .pagination-bullets{
+                        top: 25%;
+                        position: absolute;
+                        transform: translate3d(-100px,-50%,0);
+                    }
+                }
+                .pagination-bullets{
+                    position: absolute;
+                    top: 25%;
+                    transform: translate3d(-60px,-50%,0);
+                    @include breakpoint-dpr2-up {
+                        transform: translate3d(-45px, -35%, 0);
+                    }
+                    @include breakpoint-dpr-down(1540, 2) {
+                        transform: translate3d(-35px, -50%, 0);
+                    }
+                    @include xxl {
+                        transform: translate3d(-35px, -25%, 0);
+                    }
+                    @include breakpoint(1366) {
+                        transform: translate3d(-35px, -60%, 0);
+                    }
+                    @include xl {
+                        transform: translate3d(-20px, -68%, 0);
+                    }
+                    @include md {
+                        transform: translate3d(-20px, -80%, 0);
+                    }
+                    @include sm {
+                        top: 25%;
+                        height: 25px;
+                        transform: translate3d(60%, 50%, 0);
+                        z-index: 2;
+                    }
+                    .swiper-pagination-bullet{
+                        width: 42px;
+                        height: 42px;
+                        border: 1px solid var(--black-80pc);
+                        background-color: var(--white-pure);
+                        opacity: 1;
+                        margin: 15px 0;
+                        &-active{
+                            background-color: var(--black-80pc);
+                            transition: background-color 300ms linear;
+                        }
+                        @include xxl {
+                            width: 38px;
+                            height: 38px;
+                        }
+                        @include breakpoint(1366) {
+                            margin: 10px 0;
+                            width: 30px;
+                            height: 30px;
+                        }
+                        @include sm {
+                            margin: 0 6px;
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }                        
+        }
+    }
+    .section__in-the-news_numbers{
+        background-color: $color-bg-purple;
+        @include xl {
+            height: 60vh;
+        }
+        @include sm {
+            height: 100%;
+        }
+        &__wrap{
+            padding: 120px 60px 120px;
+            @include breakpoint-dpr-down(1540, 2) {
+                padding: 100px 60px 100px;
+            }
+            @include breakpoint(1366) {
+                padding: 50px 60px 50px;
+            }
+            @include xl {
+                padding: 30px 30px 50px;
+            }
+            .section__in-the-news_numbers_intro{
+                h1, h1 > .word {
+                    font-family: $f_extrabold;
+                    font-size: 148px;
+                    line-height: 132px;
+                    color: var(--white-pure);
+                    text-transform: uppercase;
+                    text-align: center;
+                    @include breakpoint-dpr2-up {
+                        font-size: 135px;
+                    }
+                    @include breakpoint-dpr-down(1540, 2) {
+                        font-size: 120px;
+                        line-height: 124px;
+                    }
+                    @include xxl {
+                        font-size: 110px;
+                        line-height: 160px;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 105px;
+                        line-height: 120px;
+                    }
+                    @include xl {
+                        font-size: 95px;
+                        line-height: 105px;
+                    }
+                    @include md {
+                        font-size: 72px;
+                        line-height: 78px;
+                    }
+                    @include sm {
+                        font-size: 48px;
+                        line-height: 56px;
+                    }
+                }
+            }
+            .section__in-the-news_numbers{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 40px 80px 80px;
+                gap: 60px;
+                @include breakpoint-dpr-down(1540, 2) {
+                    padding: 20px 40px 30px;
+                    gap: 40px;
+                }
+                @include xl {
+                    align-items: flex-start;
+                    padding: 60px 0px 30px;
+                    gap: 20px;
+                }
+                @include md {
+                    padding: 20px 0px 20px;
+                    gap: 15px;
+                }
+                @include sm {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                .section__in-the-news_number{
+                    border-radius: 25px;
+                    width: 100%;
+                    height: 580px;
+                    overflow: hidden;
+                    position: relative;
+                    @include breakpoint-dpr-down(1540, 2) {
+                        height: 520px;
+                    }
+                    @include breakpoint(1366) {
+                        height: 420px;
+                    }
+                    @include breakpoint-dpr-down(850, 2) {
+                        height: 365px;
+                    }
+                    @include md {
+                        height: 370px;
+                    }
+                    @include sm {
+                        height: 385px;
+                    }
+                    .top-strip{
+                        position: absolute;
+                        height: 75px;
+                        width: 100%;
+                        top: 0;
+                        background-color: var(--white-pure);
+                        border-top-right-radius: 25px;
+                        border-top-left-radius: 25px;
+                        padding: 20px 30px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        @include breakpoint(1366) {
+                            height: 65px;
+                        }
+                        @include xl {
+                            padding: 20px 16px;
+                        }
+                        @include sm {
+                            height: 60px;
+                        }
+                        img{
+                            width: 40px;
+                            height: 40px;
+                        }
+                        p{
+                            font-size: 24px;
+                            color: var(--black-80pc);
+                            margin-bottom: 0px;
+                            font-family: $f_semibold;
+                            margin-right: auto;
+                            padding-left: 20px;
+                            @include xxl {
+                                font-size: 22px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 16px;
+                            }
+                            @include sm {
+                                font-size: 14px;
+                            }
+                        }
+                        i.material-icons{
+                            font-size: 32px;
+                            color: var(--black-80pc);
+                            @include breakpoint(1366) {
+                                font-size: 28px;
+                            }
+                        }
+                    }
+                    .bottom-strip{
+                        position: absolute;
+                        height: 75px;
+                        width: 100%;
+                        bottom: 0;
+                        background-color: var(--white-pure);
+                        border-bottom-right-radius: 25px;
+                        border-bottom-left-radius: 25px;
+                        padding: 20px 30px;
+                        @include breakpoint(1366) {
+                            height: 65px;
+                        }
+                        @include sm {
+                            height: 60px;
+                        }
+                    }
+                    &_bg{
+                        position: relative;
+                        top: 55%;
+                        left: 0;
+                        transform: translate(-50%, 50%);
+                        svg{
+                            position: absolute;
+                            width: 980px;
+                            @include breakpoint(1366) {
+                                width: 680px;
+                            }
+                        }
+                    }
+                    &_content{
+                        padding: 160px 30px;
+                        @include breakpoint-dpr-down(1540, 2) {
+                            padding: 120px 20px;
+                        }
+                        @include xxl {
+                            padding: 132px 20px;
+                        }
+                        @include breakpoint(1366) {
+                            padding: 110px 20px;
+                        }
+                        @include sm {
+                            padding: 80px 20px;
+                        }
+                        p{
+                            font-family: $f_medium;
+                            font-size: 24px;
+                            line-height: 28px;
+                            color: var(--white-pure);
+                            &:last-child{
+                                font-size: 20px;
+                                line-height: 28px;
+                                text-align: right;
+                                padding-left: 140px;
+                                @include breakpoint-dpr2-up {
+                                    padding-left: 60px;
+                                }
+                                @include breakpoint-dpr-down(1540, 2) {
+                                    font-size: 18px;
+                                    padding-left: 15px;
+                                }                                
+                                @include breakpoint(1366) {
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                }
+                                @include breakpoint-dpr-down(850, 2) {
+                                    font-size: 12px;
+                                    line-height: 18px;
+                                }
+                                @include md {
+                                    font-size: 16px;
+                                    line-height: 20px;
+                                }
+                                @include xxsm {
+                                    font-size: 14px;
+                                }
+                            }
+                            @include xxl {
+                                font-size: 22px;
+                                line-height: 26px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 16px;
+                                line-height: 12px;
+                                margin-bottom: 5px;
+                            }
+                            @include md {
+                                font-size: 12px;
+                                line-height: 18px;
+                            }
+                            @include sm {
+                                font-size: 16px;
+                                line-height: 20px;
+                            }
+                            @include xxsm {
+                                font-size: 14px;
+                                line-height: 20px;
+                            }
+                        }
+                        h1{
+                            font-family: $f_extrabold;
+                            font-size: 90px;
+                            line-height: 82px;
+                            color: var(--white-pure);
+                            @include breakpoint-dpr2-up {
+                                font-size: 75px;
+                            }
+                            @include xxl {
+                                font-size: 68px;
+                                line-height: 72px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 64px;
+                                line-height: 62px;
+                            }
+                            @include xl {
+                                font-size: 50px;
+                                line-height: 56px;
+                            }
+                            @include breakpoint-dpr-down(850, 2) {
+                                font-size: 40px;
+                                line-height: 56px;
+                            }
+                            @include md {
+                                font-size: 36px;
+                                line-height: 40px;
+                            }
+                            @include sm {
+                                font-size: 64px;
+                                line-height: 78px;
+                            }
+                            @include xsm {
+                                font-size: 58px;
+                                line-height: 72px;
+                            }
+                            @include xxsm {
+                                font-size: 54px;
+                                line-height: 68px;
+                            }
+                        }
+                        h2{
+                            font-family: $f_extrabold;
+                            text-transform: uppercase;
+                            font-size: 46px;
+                            line-height: 60px;
+                            color: var(--white-pure);
+                            text-align: right;
+                            margin-bottom: 0px;
+                            @include breakpoint-dpr2-up {
+                                font-size: 40px;
+                                line-height: 54px;
+                            }
+                            @include xxl {
+                                font-size: 38px;
+                                line-height: 52px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 34px;
+                                line-height: 44px;
+                            }
+                            @include xl {
+                                font-size: 28px;
+                                line-height: 38px;
+                            }
+                            @include breakpoint-dpr-down(850, 2) {
+                                font-size: 26px;
+                                line-height: 32px;
+                            }
+                            @include sm {
+                                font-size: 32px;
+                                line-height: 44px;
+                            }
+                            @include xxsm {
+                                font-size: 30px;
+                                line-height: 36px;
+                            }
+                        }
+                    }
+                    &:nth-child(1){
+                        background-color: var(--color-purple-dark);
+                        .top-strip{
+                            img{
+                                width: 78px;
+                                height: 52px;
+                                @include md {
+                                    width: 48px;
+                                    height: 44px;
+                                }
+                            }
+                            p{
+                                font-size: 16px;
+                                padding-left: 10px;
+                                @include breakpoint(1366) {
+                                    font-size: 14px;
+                                    padding-left: 8px;
+                                }
+                                @include xl {
+                                    font-size: 12px;
+                                }
+                                @include md {
+                                    font-size: 10px;
+                                }
+                                @include sm {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        background-color: var(--color-magenta-dark);
+                        .section__in-the-news_number_content{
+                            @include breakpoint(1366) {
+                                padding: 130px 20px;
+                            }
+                            @include breakpoint-dpr-down(850, 2) {
+                                padding: 110px 20px;
+                            }
+                            @include sm {
+                                padding: 100px 20px;
+                            }
+                        }                        
+                        .section__in-the-news_number_bg{
+                            top: 65%;
+                            svg{
+                                transform: rotate(-90deg);
+                                left: 36%;
+                                @include breakpoint-dpr2-up {
+                                    left: 20%;
+                                }
+                                @include breakpoint-dpr-down(1540, 2) {
+                                    left: 12%;
+                                }
+                                @include xxl {
+                                    left: 2%;
+                                }
+                                @include breakpoint(1366) {
+                                    left: 40%;
+                                }
+                                @include xl {
+                                    left: 20%;
+                                }
+                                @include md {
+                                    left: -25%;
+                                }
+                            }
+                        }
+                        h1{
+                            font-size: 102px;
+                            line-height: 92px;
+                            @include breakpoint-dpr2-up {
+                                font-size: 88px;
+                            }
+                            @include breakpoint-dpr-down(1540, 2) {
+                                font-size: 86px;
+                            }
+                            @include xxl {
+                                font-size: 80px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 74px;
+                                line-height: 72px;
+                            }
+                            @include xl {
+                                font-size: 58px;
+                                line-height: 76px;
+                            }
+                            @include breakpoint-dpr-down(850, 2) {
+                                font-size: 46px;
+                                line-height: 68px;
+                            }
+                            @include md {
+                                font-size: 44px;
+                                line-height: 54px;
+                            }
+                            @include sm {
+                                font-size: 75px;
+                                line-height: 88px;
+                            }
+                            @include xsm {
+                                font-size: 66px;
+                            }
+                            @include xxsm {
+                                font-size: 62px;
+                            }
+                        }
+                    }
+                    &:nth-child(3){
+                        background-color: var(--color-orange-dark);
+                        .section__in-the-news_number_content{
+                            @include breakpoint(1366) {
+                                padding: 130px 20px;
+                            }
+                            @include breakpoint-dpr-down(850, 2) {
+                                padding: 110px 20px;
+                            }
+                            @include sm {
+                                padding: 100px 20px;
+                            }
+                        }
+                        .section__in-the-news_number_bg{
+                            top: 12%;
+                            @include breakpoint(1366) {
+                                top: 15%;
+                            }
+                            svg{
+                                left: 58%;
+                                width: 520px;
+                                @include breakpoint(1366) {
+                                    width: 350px;
+                                }
+                            }
+                        }                        
+                        h1{
+                            font-size: 104px;
+                            line-height: 92px;
+                            @include breakpoint-dpr2-up {
+                                font-size: 90px;
+                            }
+                            @include breakpoint-dpr-down(1540, 2) {
+                                font-size: 88px;
+                            }
+                            @include xxl {
+                                font-size: 80px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 75px;
+                                line-height: 74px;
+                            }
+                            @include xl {
+                                font-size: 58px;
+                            }
+                            @include breakpoint-dpr-down(850, 2) {
+                                font-size: 46px;
+                            }
+                            @include md {
+                                font-size: 42px;
+                                line-height: 54px;
+                            }
+                            @include sm {
+                                font-size: 76px;
+                                line-height: 82px;
+                            }
+                            @include xsm {
+                                font-size: 68px;
+                            }
+                            @include xxsm {
+                                font-size: 64px;
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+}

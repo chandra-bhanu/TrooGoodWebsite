@@ -1,0 +1,126 @@
+// Xtra extra Small smartphones (portrait view)
+$screen-xxsm-max: 390px;
+
+// Xtra Small smartphones (portrait view)
+$screen-xsm-max: 415px;
+
+// Small tablets and large smartphones (portrait view)
+$screen-sm-max: 576px;
+
+// Small tablets (portrait view)
+$screen-md-max: 768px;
+
+// Tablets and small desktops
+$screen-lg-max: 992px;
+
+// Large Tablets and small laptops
+$screen-xl-max: 1200px;
+
+// Large Laptop and desktops
+$screen-xxl-max: 1440px;
+
+// Extra extra Small devices
+@mixin xxsm {
+    @media (max-width: #{$screen-xxsm-max}) {
+        @content;
+    }
+}
+
+// Extra Small devices
+@mixin xsm {
+    @media (max-width: #{$screen-xsm-max}) {
+        @content;
+    }
+}
+
+// Small devices
+@mixin sm {
+    @media (max-width: #{$screen-sm-max}) {
+        @content;
+    }
+}
+ 
+// Medium devices
+@mixin md {
+    @media (max-width: #{$screen-md-max}) {
+        @content;
+    }
+}
+ 
+// Tablet devices
+@mixin lg {
+    @media (max-width: #{$screen-lg-max}) {
+        @content;
+    }
+}
+@mixin lg-landscape {
+    @media (max-width: #{$screen-lg-max}) and (max-height: #{$screen-lg-max}) and (orientation: landscape) {
+        @content;
+    }
+}
+ 
+// Large Tablet devices
+@mixin xl {
+    @media (max-width: #{$screen-xl-max}) {
+        @content;
+    }
+}
+@mixin xl-landscape {
+    @media (max-width: #{$screen-xl-max}) and (max-height: #{$screen-xl-max}) and (orientation: landscape) {
+        @content;
+    }
+}
+
+ // Large Laptop devices
+@mixin xxl {
+    @media (max-width: #{$screen-xxl-max}) {
+        @content;
+    }
+ }
+
+// Custom devices
+@mixin breakpoint($screen) {
+    @media (max-width: #{$screen}px) {
+        @content;
+    }
+}
+
+//DPR/Pixel Density Target Devices
+@mixin breakpoint-dpr2-up {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin breakpoint-dpr3-up {
+    @media only screen and (-webkit-min-device-pixel-ratio: 3),
+    only screen and (min--moz-device-pixel-ratio: 3),
+    only screen and (min-device-pixel-ratio: 3),
+    only screen and (min-resolution: 384dpi),
+    only screen and (min-resolution: 3dppx) {
+        @content;
+    }
+}
+
+// Custom Resolutions with DPR
+@mixin breakpoint-dpr-down($screen, $dpr) {
+    @media (-webkit-max-device-pixel-ratio: $dpr) and (max-width: #{$screen}px) {
+        @content;
+    }
+}
+@mixin breakpoint-dpr-up($screen, $dpr) {
+    @media (-webkit-min-device-pixel-ratio: $dpr) and (min-width: #{$screen}px) {
+        @content;
+    }
+}
+
+// Custom Resolutions with Hights
+@mixin breakpoint-w-h-up($width, $height) {
+    @media (max-width: #{$width}px) and (min-height: #{$height}px) {
+        @content;
+    }
+}

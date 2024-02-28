@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $f_regular;
+}
+
+:root { scroll-behavior: auto !important; }
+
+// html {
+//     scroll-behavior: initial;
+// }
+
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow: unset;
+    &.loading{
+        height: 100vh;
+        // overflow: hidden;
+        background-color: var(--white-80pc);
+    }
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+html.lenis {
+    height: auto;    
+}
+
+.lenis {
+    .lenis-smooth {
+        scroll-behavior: auto;
+    }
+    .lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+    }
+    .lenis-stopped {
+        overflow: hidden;
+    }
+    .lenis-scrolling iframe {
+        pointer-events: none;
+    }
+}
+
+
+// Home page starts
+
+// Home page ends

@@ -1,0 +1,440 @@
+.shop-page{    
+    .section__shop-page_hero{        
+        position: relative;
+        @include sm {
+            background-image: var(--shop-page-hero_bg-image);
+            background-size: cover;
+            background-position: center;
+        }
+        .bg{
+            background-image: var(--shop-page-hero_bg-image);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include sm {
+                display: none;
+            }
+        }
+        &-title{
+            position: absolute;
+            width: 100%;
+            top: 58%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            h1, h1 > .char{
+                text-align: center;
+                text-transform: uppercase;
+                font-family: $f_extrabold;
+                font-size: 340px;
+                line-height: 300px;
+                color: var(--black-90pc);
+                overflow: hidden;
+                @include breakpoint-dpr2-up {
+                    font-size: 320px;
+                    line-height: 280px;
+                }
+                @include breakpoint-dpr-down(1540, 2) {
+                    font-size: 280px;
+                    line-height: 240px;
+                }
+                @include breakpoint(1366) {
+                    font-size: 240px;
+                    line-height: 200px;
+                }
+                @include xl {
+                    font-size: 210px;
+                    line-height: 190px;
+                }
+                @include md {
+                    font-size: 190px;
+                    line-height: 180px;
+                }
+                @include sm {
+                    font-size: 100px;
+                    line-height: 100px;
+                }
+                @include xxsm {
+                    font-size: 90px;
+                    line-height: 85px;
+                }
+            }
+        }        
+    }
+    .section__shop-page_products{
+        position: relative;
+        &-category-image{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+            z-index: 1;
+            @include breakpoint-dpr2-up {
+                top: 0px;
+            }
+            @include xxl {
+                top: 0px;
+            }
+            @include sm {
+                display: none;
+                visibility: hidden;
+            }
+            &__wrap{
+                position: relative;
+                overflow: hidden;
+                img{
+                    width: 480px;
+                    height: 85vh;
+                    object-fit: cover;
+                    @include breakpoint-dpr-down(1540, 2) {
+                        width: 440px;
+                    }
+                    @include xxl {
+                        width: 420px;
+                    }
+                    @include breakpoint(1366) {
+                        width: 360px;
+                    }
+                    @include xl {
+                        width: 280px;
+                        height: 55vh;
+                    }
+                    @include md {
+                        width: 200px;
+                        height: 60vh;
+                    }
+                }
+                h2{
+                    position: absolute;
+                    top: 50%;
+                    left: 85%;
+                    transform: translate(-50%, -50%) rotate(270deg);
+                    font-size: 120px;
+                    font-family: $f_bold;
+                    text-transform: uppercase;
+                    color: var(--white-pure);
+                    @include breakpoint-dpr-down(1540, 2) {
+                        font-size: 110px;
+                    }
+                    @include xxl {
+                        font-size: 100px;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 90px;
+                    }
+                    @include xl {
+                        font-size: 70px;
+                        left: 80%;
+                    }
+                    @include md {
+                        font-size: 80px;
+                        left: 75%;
+                    }
+                }
+                &:last-child{
+                    img{
+                        height: 100vh;
+                        @include xl {
+                            height: 60vh;
+                        }
+                        @include md {
+                            height: 68vh;
+                        }
+                    }
+                }
+            }            
+        }
+        &-slider{
+            position: relative;
+            width: 100%;
+            &:nth-child(2) {
+                height: 100vh;
+                @include xl {
+                    height: 60vh;
+                }
+                @include md {
+                    height: 68vh;
+                }
+                @include sm {
+                    height: 68vh;
+                }
+                @include xsm {
+                    height: 74vh;
+                }
+                @include xxsm {
+                    height: 75vh;
+                }
+            }
+            &-category-image__mobile{
+                display: none;
+                visibility: hidden;
+                position: relative;
+                @include sm {
+                    display: inline-block;
+                    visibility: visible;
+                    position: absolute;
+                    img{
+                        width: 100dvw;
+                        height: 250px;
+                        object-fit: cover;                                               
+                    }
+                    h2{
+                        position: absolute;
+                        top: 40%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 50px;
+                        font-family: $f_bold;
+                        text-transform: uppercase;
+                        color: var(--white-pure);
+                    } 
+                }
+            }
+            // height: calc(100vh + 160px);
+            height: 100vh;
+            &__swiper{
+                padding-top: 80px;
+                margin-left: -130px;
+                z-index: 0;
+                .swiper-slide{
+                    .product_image-wrapper{
+                        width: 440px;
+                        height: 460px;
+                        background-color: var(--white-pure);
+                        img{
+                            position: relative;
+                            width: 35%;
+                            top: 6%;
+                            left: 50%;
+                            transform: translate(-50%);
+                            @include xl {
+                                width: 42%;
+                            }
+                            @include sm {
+                                width: 34%;
+                            }
+                            &.scale-1x{
+                                width: 68%; 
+                                top: 20px;
+                                @include xl {
+                                    width: 73%;
+                                }
+                                @include sm {
+                                    width: 68%;
+                                    top: 15px;
+                                }
+                            }
+                            &.scale-2x{
+                                width: 70%;
+                                top: 4%;
+                                @include xl {
+                                    width: 75%;
+                                }
+                            }
+                        }
+                        @include breakpoint-dpr2-up {
+                            width: 400px;
+                        }
+                        @include breakpoint-dpr-down(1540, 2) {
+                            width: 340px;
+                            height: 360px
+                        }
+                        @include xxl {
+                            width: 330px;
+                            height: 350px
+                        }
+                        @include breakpoint(1366) {
+                            width: 280px;
+                            height: 300px;
+                        }
+                        @include xl {
+                            width: 250px;
+                            height: 320px;
+                        }
+                        @include md {
+                            width: 220px;
+                            height: 280px;
+                        }
+                        @include sm {
+                            width: 185px;
+                            height: 200px;
+                        }
+                        @include xsm {
+                            width: 165px;
+                            height: 180px;
+                        }
+                    }
+                    .product_info{
+                        padding: 30px 20px 0;
+                        display: flex;
+                        flex-direction: column;
+                        @include breakpoint(1366) {
+                            padding: 20px 20px 0;
+                        }
+                        @include sm {
+                            padding: 20px 0 0;
+                        }
+                        .product_name{
+                            color: var(--white-pure);
+                            font-family: $f_semibold;
+                            font-size: 38px;
+                            line-height: 36px;
+                            text-transform: uppercase;
+                            @include breakpoint-dpr-down(1540, 2) {
+                                font-size: 36px;
+                                line-height: 34px;
+                            }
+                            @include breakpoint(1366) {
+                                font-size: 26px;
+                                line-height: 24px;
+                                margin-bottom: 0px;
+                            }
+                            @include xl {
+                                font-size: 22px;
+                                line-height: 26px;
+                            }
+                            @include sm {
+                                font-size: 18px;
+                                line-height: 24px;
+                            }
+                        }
+                        .product_ratings{
+                            min-height: 48px;
+                            .stars-container{                                
+                                display: flex;
+                                // margin: 8px 0px;
+                                width: 100%;
+                                height: 100%;
+                                .star-container{
+                                    margin-right: 12px;
+                                    position: relative;
+                                    width: auto;
+                                    @include breakpoint(1366) {
+                                        margin-right: 10px;
+                                    }
+                                    @include sm {
+                                        margin-right: 8px;
+                                    }
+                                    div{
+                                        &.starfill{
+                                            position: absolute;
+                                            overflow: hidden;
+                                            margin: 8px 0px;
+                                        }
+                                        &.staro{
+                                            overflow: hidden;
+                                            margin: 8px 0px;
+                                        }                                    
+                                        i.material-icons{
+                                            font-size: 32px;
+                                            color: var(--white-pure);
+                                            width: 100%;
+                                            @include breakpoint(1366) {
+                                                font-size: 26px;
+                                            }
+                                            @include sm {
+                                                font-size: 18px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .product_price{
+                            padding: 30px 0px 14px;
+                            color: var(--white-pure);
+                            font-family: $f_semibold;
+                            font-size: 34px;
+                            line-height: 18px;
+                            @include breakpoint-dpr-down(1540, 2) {
+                                padding: 24px 0px 12px;
+                                font-size: 32px;
+                            }
+                            @include breakpoint(1366) {
+                                padding: 18px 0px 12px;
+                                font-size: 28px;
+                                line-height: 4px;
+                            }
+                            @include sm {
+                                font-size: 24px;
+                            }
+                        }                        
+                    }
+                    .product_shop-now-button{
+                        margin-left: 22px;
+                        @include sm {
+                            margin-left: 0;
+                        }
+                    }
+                    &:nth-child(1){
+                        .product_shop-now-button{
+                            margin-left: 0px;
+                        }
+                    }
+                }
+                @include breakpoint-dpr2-up {
+                    margin-left: -85px;
+                }
+                @include breakpoint-dpr-down(1540, 2) {
+                    padding-top: 60px;
+                    margin-left: -45px;
+                }
+                @include xxl {
+                    margin-left: -20px;
+                }
+                @include breakpoint(1366) {
+                    padding-top: 40px;
+                    margin-left: -70px;
+                }
+                @include xl {
+                    padding-top: 120px;
+                    margin-left: 20px;
+                }
+                @include md {
+                    padding-top: 80px;
+                    margin-left: 10px;
+                }
+                @include sm {
+                    padding-top: 20vh;
+                    margin-left: 10px;
+                }
+            }
+            &:nth-child(3){
+                .section__shop-page_products-slider__swiper{                    
+                    padding-top: 40px;
+                    @include xl {
+                        padding-top: 120px;
+                    }
+                    @include md {
+                        padding-top: 80px;
+                    }
+                    @include sm {
+                        padding-top: 20vh;
+                    }
+                }
+            }
+            @include xl {
+                height: 60vh;
+            }
+            @include md {
+                height: 68vh;
+            }
+            @include sm {
+                height: 68vh;
+            }
+            @include xsm {
+                height: 74vh;
+            }
+            @include xxsm {
+                height: 75vh;
+            }
+        }
+    }
+}
