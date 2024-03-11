@@ -8,6 +8,8 @@ snapshots:
     url: /product-page.html
   - name: What People say
     url: /what-people-say.html
+  - name: B2B
+    url: /b2b.html
   - name: In The News
     url: /in-the-news.html
   - name: Shop Now
