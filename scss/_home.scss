@@ -1,4 +1,5 @@
 .home {
+    // Hero slider Styles STARTS
     .section__hero {
         display: flex;
         flex-direction: column;
@@ -127,23 +128,41 @@
                             background-position: center;
                             // transition: all 1.2s ease;
                         }
-                        .banner_cnt{
+                        .banner_content{
                             h1{
                                 font-size: 200px;
-                                line-height: 210px;
+                                line-height: 170px;
                                 color: var(--white-pure);
                                 font-family: $f_black;
                                 text-align: center;
                                 @include breakpoint-dpr-down(1540, 2) {
-                                    font-size: 160px;
-                                    line-height: 170px;
+                                    font-size: 150px;
+                                    line-height: 140px;
                                 }
                                 @include xxl {
-                                    line-height: 150px;
+                                    line-height: 135px;
                                 }
                                 @include breakpoint(1366){
-                                    font-size: 136px;
-                                    line-height: 126px;
+                                    font-size: 130px;
+                                    line-height: 108px;
+                                }
+                            }
+                            .content_block {
+                                .timeline_p{
+                                    font-size: 34px;
+                                    line-height: 48px;
+                                    color: var(--black-pure);
+                                    &.text_white{
+                                        color: var(--white-pure);
+                                    }
+                                    @include breakpoint-dpr-down(1540, 2) {
+                                        font-size: 28px;
+                                        line-height: 42px;
+                                    }
+                                    @include xxl {
+                                        font-size: 22px;
+                                        line-height: 34px;
+                                    }
                                 }
                             }
                         }
@@ -151,7 +170,98 @@
                             position: absolute;
                             left: 0;
                             width: 100%;
+                        }                        
+                        .timeline_year{
+                            h2{
+                                font-family: $f_bold;
+                                font-size: 28px;
+                                position: absolute;
+                                top: 15%;
+                                right: 15px;
+                                z-index: 1;
+                                @include xxl {
+                                    font-size: 26px;
+                                }
+                                @include breakpoint(1366) {
+                                    font-size: 22px;
+                                }
+                            }
+                            svg{
+                                position: absolute;
+                                width: 120px;
+                                height: auto;
+                                top: calc(15% - 3px);
+                                right: 2px;
+                                z-index: 0;
+                                @include xxl {
+                                    width: 110px;
+                                }
+                                @include breakpoint(1366) {
+                                    width: 90px;
+                                }
+                            }
                         }
+                        .image-set{
+                            width: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            .image_block{
+                                position: relative;
+                                display: flex;
+                                align-items: flex-start;
+                                justify-content: flex-start;
+                                .scale-75{
+                                    svg{
+                                        transform: scale(0.75);
+                                    }
+                                }
+                                .scale-85{
+                                    svg{
+                                        transform: scale(0.85);
+                                        @include breakpoint-dpr2-up {
+                                            transform: scale(0.80);
+                                        }
+                                        @include breakpoint-dpr-down(1540, 2) {
+                                            transform: scale(0.75);
+                                        }
+                                        @include xxl {
+                                            transform: scale(0.70);
+                                        }
+                                        @include breakpoint(1366) {
+                                            transform: scale(0.6);
+                                        }
+                                    }
+                                }
+                                .scale-95{
+                                    svg{
+                                        transform: scale(0.95);
+                                        @include breakpoint-dpr2-up {
+                                            transform: scale(0.9);
+                                        }
+                                        @include breakpoint-dpr-down(1540, 2) {
+                                            transform: scale(0.85);
+                                        }
+                                        @include xxl {
+                                            transform: scale(0.80);
+                                        }
+                                        @include breakpoint(1366) {
+                                            transform: scale(0.70);
+
+                                        }
+                                    }
+                                }
+                                &.left{
+                                    position: relative;
+                                    width: 100%;
+                                }
+                                &.right{
+                                    position: relative;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        // First Slide
                         &:nth-child(1){
                             svg {
                                 &.logo{
@@ -356,12 +466,20 @@
                                 }
                             }
                         }
+                        // Second Slide
                         &:nth-child(2){
-                            .banner_cnt{
+                            .banner_content{
                                 display: flex;
                                 flex-direction: column;
                                 align-items: center;
                                 justify-content: center;
+                                margin: 10% auto 0%;
+                                @include breakpoint-dpr2-up {   
+                                    margin: 4% auto 0%;                                             
+                                }
+                                @include breakpoint(1366) {
+                                    margin: 12% auto 0%;
+                                }
                                 h1 {
                                     &:first-child{
                                         transform: translateX(120%);
@@ -371,6 +489,10 @@
                                         transform: translateX(180%);
                                         transition: transform 4s ease-out;
                                     }
+                                    &:nth-child(3){
+                                        transform: translateX(140%);
+                                        transition: transform 2.5s ease-out;
+                                    }
                                     color: var(--white-pure);                                    
                                     &.reveal{
                                         transform: translateX(0%);
@@ -379,6 +501,9 @@
                                         }
                                         &:nth-child(2){
                                             transition: transform 2s var(--ease-out-expo);
+                                        }
+                                        &:nth-child(3){
+                                            transition: transform 2.5s var(--ease-out-expo);
                                         }
                                     }
                                     &.reverse{
@@ -390,207 +515,568 @@
                                             transform: translateX(-180%);
                                             transition: transform 4s ease-out;
                                         }
+                                        &:nth-child(3){
+                                            transform: translateX(-140%);
+                                            transition: transform 2.5s ease-out;
+                                        }
                                     }
                                 }
                             }
-                            .bag_img{
-                                position: absolute;
-                                left: 11%;
-                                bottom: 10%;
-                                z-index: 1;
-                                transform: translate(40%, 140%);
-                                opacity: 0;
-                                transition: all 0.4s ease-out;
-                                &.reveal {
-                                    transform: translate(0%, 0%);
-                                    opacity: 1;
-                                    transition: all 2s var(--ease-out-expo) 0.5s;
-                                }
-                                img {
-                                    max-width: 320px;
-                                    @include breakpoint-dpr-down(1540, 2) {
-                                        max-width: 290px;
-                                    }
-                                    @include xxl {
-                                        max-width: 280px;
-                                    }
-                                    @include breakpoint(1366){
-                                        max-width: 210px;
-                                    }
-                                }
-                                @include xxl {
-                                    left: 8%;
-                                    bottom: 14%;
-                                }
-                                @include breakpoint(1366){
-                                    left: 12%;
-                                    bottom: 12%;
-                                }
-                            }
+                            // .bag_img{
+                            //     position: absolute;
+                            //     left: 11%;
+                            //     bottom: 10%;
+                            //     z-index: 1;
+                            //     transform: translate(40%, 140%);
+                            //     opacity: 0;
+                            //     transition: all 0.4s ease-out;
+                            //     &.reveal {
+                            //         transform: translate(0%, 0%);
+                            //         opacity: 1;
+                            //         transition: all 2s var(--ease-out-expo) 0.5s;
+                            //     }
+                            //     img {
+                            //         max-width: 320px;
+                            //         @include breakpoint-dpr-down(1540, 2) {
+                            //             max-width: 290px;
+                            //         }
+                            //         @include xxl {
+                            //             max-width: 280px;
+                            //         }
+                            //         @include breakpoint(1366){
+                            //             max-width: 210px;
+                            //         }
+                            //     }
+                            //     @include xxl {
+                            //         left: 8%;
+                            //         bottom: 14%;
+                            //     }
+                            //     @include breakpoint(1366){
+                            //         left: 12%;
+                            //         bottom: 12%;
+                            //     }
+                            // }
+                            // .path_img {
+                            //     top: 50%;
+                            //     left: 50%;
+                            //     transform: translate(-50%, -50%);
+                            //     img {
+                            //         width: 100%;
+                            //         // height: calc(100vh - 10vh);
+                            //     }
+                            // }
                             .path_img {
-                                top: 48%;
-                                left: 80%;
-                                transform: translate(-50%,-50%);
-                                img {
-                                    width: 70%;
-                                }
-                            }
-                        }
-                        &:nth-child(3){
-                            .banner_cnt {
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: center;
-                                h1 {
-                                    &:first-child{
-                                        transform: translateX(120%);
-                                        transition: transform 2s ease-out;
-                                    }
-                                    &:nth-child(2){
-                                        transform: translateX(100%);
-                                        transition: transform 1s ease-out;
-                                    }
-                                    color: var(--black-pure);
-                                    &.reveal{
-                                        transform: translateX(0%);
-                                        &:first-child{
-                                            transition: transform 2s var(--ease-out-expo);
-                                        }
-                                        &:nth-child(2){
-                                            transition: transform 2s var(--ease-out-expo) 0.4s;
-                                        }
-                                    }
-                                    &.reverse{
-                                        &:first-child{
-                                            transform: translateX(-120%);
-                                            transition: transform 2s ease-out;
-                                        }
-                                        &:nth-child(2){
-                                            transform: translateX(-100%);
-                                            transition: transform 1s ease-out;
-                                        }
-                                    }
-                                }
-                                .inner_cnt{
-                                    display: flex;
-                                    justify-content: left;
-                                    align-items: flex-start;
-                                    grid-gap: 120px;
-                                    padding-left: 100px;
-                                    margin-top: 70px;
-                                    @include xxl {
-                                        grid-gap: 90px;
-                                        padding-left: 50px;
-                                        margin-top: 50px;
-                                    }
-                                    img {
-                                        transform: translateY(400%);
-                                        transition: transform 0.4s ease-out;
-                                        @include xxl {
-                                            width: 18%;
-                                        }
-                                        &.reveal {
-                                            transform: translateY(0%);
-                                            transition: transform 2s var(--ease-out-expo) 0.5s;
-                                        }
-                                    }
-                                    p{
-                                        font-size: 23px;
-                                        line-height: 35px;
-                                        max-width: 500px;
-                                        @include xxl {
-                                            font-size: 16px;
-                                            line-height: 22px;
-                                            max-width: 400px;
-                                        }
-                                        @include breakpoint(1366){
-                                        }
-                                        .line{
-                                            transform: translateX(90%);
-                                            opacity: 0;
-                                        }
-                                        &.reverse{
-                                            .line{
-                                                transform: translateX(-90%);
-                                                opacity: 0;
-                                            }
-                                        }                                        
-                                    }
-                                }
-                            }
-                            .path_img {
-                                img {
+                                top: 0;
+                                left: 0;
+                                z-index: -1;
+                                svg {
                                     width: 100%;
                                 }
                             }
                         }
-                        &:nth-child(4){
-                            .banner_cnt {
+                        // Fifth Slide (2018)
+                        &:nth-child(3){
+                            .banner_content {
                                 width: 100%;
                                 position: relative;
-                                padding: 0 100px 0 0;
-                                .imgcnt_blk {
-                                    position: relative;
-                                    width: 100%;
+                                .content_block{
                                     display: flex;
+                                    align-items: flex-start;
                                     justify-content: flex-start;
-                                    align-items: center;
-                                    .imgblk {
-                                        // img {
-                                        //     width: 480px;
-                                        // }
-                                        svg{
-                                            width: 42vw;
-                                            height: auto;
-                                            @include breakpoint(1366){
-                                                width: 40vw;
+                                    margin: auto 30% 20% 35%;
+                                    @include breakpoint-dpr2-up {                                                
+                                        margin: auto 25% 24% 35%;
+                                    }
+                                    @include breakpoint-dpr-down(1540, 2) {    
+                                        margin: auto 28% 20% 35%;
+                                    }
+                                    @include xxl {    
+                                        margin: auto 28% 22% 42%;
+                                    }
+                                    @include breakpoint(1366) {    
+                                        margin: auto 25% 18% 42%;
+                                    }
+                                }
+                            }
+                            .path_img {
+                                top: 43%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                z-index: -1;
+                                svg {
+                                    width: 100%;
+                                }
+                            }
+                            .image-set{
+                                .image_block{
+                                    &.left{
+                                        margin: auto auto auto -50%;
+                                        .left-center{
+                                            position: absolute;
+                                            margin: auto auto auto 18%;
+                                            @include breakpoint-dpr2-up {   
+                                                margin: auto auto auto 14%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {    
+                                                margin: -5% auto auto 9%;
+                                            }
+                                            @include xxl {
+                                                margin: -8% auto auto 6%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -12% auto auto 0%;
+                                            }
+                                        }
+                                        .left-bottom{
+                                            position: absolute;
+                                            margin: 12% 0% auto -8%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 14% 0% auto -14%;                          
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {    
+                                                margin: 6% 0% auto -22%;
+                                            }
+                                            @include xxl {
+                                                margin: 5% 0% auto -26%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -2% 0% auto -30%;
                                             }
                                         }
                                     }
-                                    .cntblk {
-                                        max-width:660px;
-                                        margin-left: -120px;
-                                        @include xxl {
-                                            max-width: 500px;
-                                            margin-left: -90px;
-                                        }
-                                        @include breakpoint(1366){
-                                            max-width: 480px;
-                                            margin-left: -70px;
-                                        }
-                                        p {
-                                            font-size: 23px;
-                                            line-height: 35px;
-                                            margin-bottom: 30px;
-                                            @include xxl {
-                                                font-size: 16px;
-                                                line-height: 24px;
+                                    &.right{
+                                        margin: auto auto auto 50%;
+                                        .right-center{
+                                            position: absolute;
+                                            margin: 2% auto 0% -28%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 0% auto 0% -32%;                                    
                                             }
-                                            &:last-child {
-                                                margin-bottom: 0;
+                                            @include breakpoint-dpr-down(1540, 2) {  
+                                                margin: -6% auto 0% -40%;  
+                                            }
+                                            @include xxl {
+                                                margin: -7% auto 0% -44%;    
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -12% auto 0% -46%;
+                                            }
+                                        }
+                                        .right-bottom{
+                                            position: absolute;
+                                            margin: auto auto auto auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // Sixth Slide (2019)
+                        &:nth-child(4){
+                            .banner_content {
+                                width: 100%;
+                                position: relative;
+                                .content_block{
+                                    display: flex;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    margin: auto 15% 24% 60%;
+                                    @include breakpoint-dpr2-up {
+                                        margin: auto 12% 24% 58%;
+                                    }
+                                    @include xxl {
+                                        margin: auto 14% 24% 62%;
+                                    }
+                                    @include breakpoint(1366) {
+                                        margin: auto 14% 20% 60%;
+                                    }
+                                }
+                            }
+                            .path_img {
+                                top: 58%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                z-index: -1;
+                                svg {
+                                    width: 100%;
+                                }
+                            }
+                            .image-set{
+                                .image_block{
+                                    &.left{
+                                        margin: auto auto auto -50%;
+                                        .left-center{
+                                            position: absolute;
+                                            margin: 2% auto auto 20%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 4% auto auto 14%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -2% auto auto 6%;
+                                            }
+                                            @include xxl {
+                                                margin: -4% auto auto 3%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -9% auto auto -2%;
+                                            }
+                                        }
+                                        .left-bottom{
+                                            position: absolute;
+                                            margin: -12% auto auto 42%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: -12% auto auto 38%;       
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -18% auto auto 30%;
+                                            }
+                                            @include xxl {
+                                                margin: -20% auto auto 28%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -25% auto auto 22%;
+                                            }
+                                        }
+                                    }
+                                    &.right{
+                                        margin: auto auto auto 50%;
+                                        .right-center{
+                                            position: absolute;
+                                            margin: 6% auto 0% -16%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 7% auto 0% -20%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: 0% auto 0% -28%;
+                                            }
+                                            @include xxl {
+                                                margin: -2% auto 0% -32%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -8% auto 0% -35%;
                                             }
                                         }
                                     }
                                 }
-                            }                        
+                            }
+                        }
+                        // Seventh Slide (2020)
+                        &:nth-child(5){
+                            .banner_content {
+                                width: 100%;
+                                position: relative;
+                                .content_block{
+                                    display: flex;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    margin: auto 60% 18% 10%;
+                                    @include breakpoint-dpr2-up {
+                                        margin: auto 57% 18% 10%;
+                                    }
+                                    @include xxl {
+                                        margin: auto 65% 18% 8%;
+                                    }
+                                }
+                            }
                             .path_img {
-                                top: 58%;
+                                top: 58.5%;
+                                left: 50%;
                                 transform: translate(-50%,-50%);
-                                left: 48%;
-                                img {
-                                    width: 96%;
+                                z-index: -1;
+                                svg {
+                                    width: 100%;
+                                }
+                            }
+                            .image-set{
+                                .image_block{
+                                    &.left{
+                                        margin: auto auto auto -50%;
+                                        .left-bottom{
+                                            position: absolute;
+                                            margin: 5% auto auto 35%;
+                                            @include breakpoint-dpr2-up {  
+                                                margin: 5% auto auto 31%;                                              
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -3% auto auto 26%;
+                                            }
+                                            @include xxl {
+                                                margin: -3% auto auto 19%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -10% auto auto 16%;
+                                            }
+                                        }
+                                    }
+                                    &.right{
+                                        margin: auto auto auto 50%;
+                                        .right-center{
+                                            position: absolute;
+                                            margin: 5% auto 0% -32%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 7% auto 0% -36%;                   
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -1% auto 0% -42%;
+                                            }
+                                            @include xxl {
+                                                margin: -1% auto 0% -48%;
+                                            }
+                                            @include breakpoint(1366) { 
+                                                margin: -8% auto 0% -47%;   
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // Eighth Slide (2021)
+                        &:nth-child(6){
+                            .banner_content {
+                                width: 100%;
+                                position: relative;
+                                .content_block{
+                                    display: flex;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    margin: auto 15% 15% 50%;
+                                    @include breakpoint-dpr-down(1540, 2) {
+                                        margin: auto 15% 22% 50%;
+                                    }
+                                    @include breakpoint(1366) {
+                                        margin: auto 18% 20% 50%;
+                                    }
+                                }
+                            }
+                            .path_img {
+                                top: 53%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                z-index: -1;
+                                svg {
+                                    width: 100%;
+                                }
+                                @include breakpoint(1366) {
+                                    top: 50%;
+                                }
+                            }
+                            .image-set{
+                                .image_block{
+                                    &.left{
+                                        margin: auto auto auto -50%;
+                                        .left-center{
+                                            position: absolute;
+                                            margin: -5% auto auto 20%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: -5% auto auto 16%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) { 
+                                                margin: -10% auto auto 8%;   
+                                            }
+                                            @include xxl {
+                                                margin: -11% auto auto 4%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -18% auto auto 0%;
+                                            }
+                                        }
+                                    }
+                                    &.right{
+                                        margin: auto auto auto 50%;
+                                        .right-center{
+                                            position: absolute;
+                                            margin: 8% auto 0% -25%;
+                                            @include breakpoint-dpr2-up { 
+                                                margin: 8% auto 0% -33%;                             
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: 1% auto 0% -40%;
+                                            }
+                                            @include xxl {   
+                                                margin: 0% auto 0% -45%; 
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -6% auto 0% -47%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // Nineth Slide (2022)
+                        &:nth-child(7){
+                            .banner_content {
+                                width: 100%;
+                                position: relative;
+                                .content_block{
+                                    display: flex;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    margin: auto 22% 25% 45%;
+                                    @include breakpoint-dpr2-up {                                                
+                                        margin: auto 15% 25% 48%;
+                                    }
+                                    @include breakpoint-dpr-down(1540, 2) {
+                                        margin: auto 18% 24% 48%;
+                                    }
+                                }
+                            }
+                            .path_img {
+                                top: 47.5%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                z-index: -1;
+                                svg {
+                                    width: 100%;
+                                }
+                                @include breakpoint(1366) {
+                                    top: 44.5%;
+                                }
+                            }
+                            .image-set{
+                                .image_block{
+                                    &.left{
+                                        margin: auto auto auto -50%;
+                                        .left-center{
+                                            position: absolute;
+                                            margin: -8% auto auto 26%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: -9% auto auto 22%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -14% auto auto 15%;
+                                            }
+                                            @include xxl {
+                                                margin: -16% auto auto 11%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -20% auto auto 7%;
+                                            }
+                                        }
+                                        .left-bottom{
+                                            position: absolute;
+                                            margin: 14% auto auto 28%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 16% auto auto 25%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: 9% auto auto 18%;
+                                            }
+                                            @include xxl {
+                                                margin: 8% auto auto 14%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: 0% auto auto 10%;
+                                            }
+                                        }
+                                    }
+                                    &.right{
+                                        margin: auto auto auto 50%;
+                                        .right-center{
+                                            position: absolute;
+                                            margin: -3% auto 0% -45%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: -2% auto 0% -48%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -7% auto 0% -55%;
+                                            }
+                                            @include xxl {
+                                                margin: -8% auto 0% -58%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -14% auto 0% -65%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // Tenth Slide (2023)
+                        &:nth-child(8){
+                            .banner_content {
+                                width: 100%;
+                                position: relative;
+                                .content_block{
+                                    display: flex;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    margin: auto 25% 15% 40%;
+                                    @include breakpoint-dpr2-up {
+                                        margin: auto 22% 15% 40%;
+                                    }
+                                    @include xxl {    
+                                        margin: auto 24% 15% 40%;
+                                    }
+                                }
+                            }
+                            .path_img {
+                                top: 40%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                z-index: -1;
+                                svg {
+                                    width: 100%;
+                                    // .cyclist{
+                                    //     @include breakpoint(1366) {
+                                    //         transform: scale(0.85);
+                                    //     }
+                                    // }
+                                }
+                                @include breakpoint-dpr2-up {
+                                    top: calc(42.5% + 1%);
+                                }
+                                @include breakpoint(1366) {
+                                    top: 36.5%;
+                                }
+                            }
+                            .image-set{
+                                .image_block{
+                                    &.left{
+                                        margin: auto auto auto -50%;
+                                        .left-center{
+                                            position: absolute;
+                                            margin: -4% auto auto 15%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: -6% auto auto 15%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: -11% auto auto 5%;
+                                            }
+                                            @include xxl {
+                                                margin: -12% auto auto 0%;
+                                            }
+                                            @include breakpoint(1366) {
+                                                margin: -16% auto auto -4%;
+                                            }
+                                        }
+                                        .left-bottom{
+                                            position: absolute;
+                                            margin: 8% auto auto 42%;
+                                            @include breakpoint-dpr2-up {
+                                                margin: 9% auto auto 40%;
+                                            }
+                                            @include breakpoint-dpr-down(1540, 2) {
+                                                margin: 3% auto auto 32%;
+                                            }
+                                            @include xxl {
+                                                margin: 2% auto auto 30%;
+                                            }
+                                            @include breakpoint(1366) {                                                
+                                                margin: -3% auto auto 25%;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }                    
-                }
-                
+                }                
             }            
         }
     }
+    // Hero slider Styles ENDS
     
-    // Snacking Section
+    // Snacking Section Styles STARTS
     .snacking {
         position: relative;
         display: flex;
@@ -670,7 +1156,9 @@
             }
         }
     }
+    // Snacking Section Styles ENDS
 
+    // Products slider Styles STARTS
     .products_slider{
         position: relative;
         background-color: #e7e5dd;        
@@ -967,8 +1455,9 @@
             }            
         }
     }
+    // Products slider Styles ENDS
 
-    // Brand film Section
+    // Brand film Section Styles STARTS
     .brand_film{
         position: relative;
         &_wrap{
@@ -1009,8 +1498,9 @@
             }
         }
     }
+    // Brand film Section Styles ENDS
 
-    //Testimonial 
+    //Testimonial Styles STARTS
     .testimonial_wrap{
         position: relative;
         width: 100%;
@@ -1084,8 +1574,9 @@
             }
         }
     }
+    //Testimonial Styles ENDS
 
-    // Our Inspiration Section
+    // Our Inspiration Section Styles STARTS
     .our_inspiration{
         position: relative;
         padding: 100px 50px 0px;
@@ -1140,7 +1631,9 @@
             }
         }
     }
+    // Our Inspiration Section Styles ENDS
 
+    // Testimonials Modal Pop-up Styles STARTS
     .goodluckcharms_modal{
         &.modal_active {
             .modal-dialog{
@@ -1167,8 +1660,7 @@
             transform: translate(-50%,-50%) scale(0);
             transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
             margin: 0;
-            overflow: hidden;
-            
+            overflow: hidden;            
             .modal-content,.swiper-slide{
                 width: 100%;
                 height: 100%;
@@ -1177,11 +1669,11 @@
                 overflow: hidden;
                 border: none;
                 @include breakpoint-dpr-down(1540, 2) {
-                    padding: 30px 40px;
-                }
-                @include breakpoint(1366) {
                     padding: 20px 40px;
                 }
+                // @include breakpoint(1366) {
+                //     padding: 20px 40px;
+                // }
                 .modal-body{
                     position: relative;
                     width: 100%;
@@ -1251,13 +1743,13 @@
                                     margin-bottom: 80px;
                                     padding-left: 180px;
                                     @include breakpoint-dpr-down(1540, 2) {
-                                        margin-bottom: 60px;
+                                        margin-bottom: 30px;
                                     }
                                     @include xxl {
-                                        margin-bottom: 45px;
+                                        margin-bottom: 35px;
                                     }
                                     @include breakpoint(1366) {
-                                        margin-bottom: 35px;
+                                        margin-bottom: 25px;
                                     }
                                     &:after{
                                         content: url('data:image/svg+xml,<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43 37" width="43" height="37"><title>“</title><style>tspan { white-space:pre } .t0 { font-size: 92px;line-height: 157px;fill: %23231f20;font-weight: 800;font-family: "Arial" } </style><text id="”" style="transform: matrix(-1,0,0,-1,45.212,-29.75)" ><tspan x="0" y="0" class="t0">“</tspan></text></svg>');
@@ -1302,10 +1794,11 @@
             .modal-footer{
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 padding: 0;                
                 opacity: 0;
                 border: 0;
+                flex: 1 1 20%;
                 .goodluckcharms_modal_buttons{
                     position: relative;
                     display: flex;
@@ -1375,8 +1868,9 @@
            }
         }
     }
+    // Testimonials Modal Pop-up Styles ENDS
 
-    // About Section
+    // About Section Styles STARTS
     .about{
         position: relative;
         display: flex;
@@ -1486,8 +1980,9 @@
             }
         }
     }
+    // About Section Styles ENDS
 
-    // Contact Section
+    // Contact Section Styles STARTS
     .contact{
         position: relative;
         flex-direction: column;
@@ -1753,4 +2248,5 @@
             }
         }
     }
+    // Contact Section Styles ENDS
 }

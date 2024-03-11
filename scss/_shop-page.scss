@@ -1,4 +1,8 @@
-.shop-page{    
+.shop-page{
+    @include xl {
+        background-color: $color-bg-orange;
+    }
+    // Hero Banner styles STARTS
     .section__shop-page_hero{        
         position: relative;
         @include sm {
@@ -11,7 +15,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
+            height: 100vh;
             width: 100%;
             z-index: -1;
             background-size: cover;
@@ -19,6 +23,9 @@
             background-repeat: no-repeat;
             @include sm {
                 display: none;
+            }
+            @include xl {
+                height: 85%;
             }
         }
         &-title{
@@ -66,6 +73,9 @@
             }
         }        
     }
+    // Hero Banner styles ENDS
+
+    // Products Display styles STARTS
     .section__shop-page_products{
         position: relative;
         &-category-image{
@@ -106,6 +116,10 @@
                         width: 280px;
                         height: 55vh;
                     }
+                    @include lg {
+                        width: 260px;
+                        height: 70vh;
+                    }
                     @include md {
                         width: 200px;
                         height: 60vh;
@@ -144,6 +158,9 @@
                         @include xl {
                             height: 60vh;
                         }
+                        @include lg {
+                            height: 75vh;
+                        }
                         @include md {
                             height: 68vh;
                         }
@@ -159,17 +176,20 @@
                 @include xl {
                     height: 60vh;
                 }
+                @include lg {
+                    height: 75vh;
+                }
                 @include md {
                     height: 68vh;
                 }
                 @include sm {
-                    height: 68vh;
+                    height: 85vh;
                 }
                 @include xsm {
-                    height: 74vh;
+                    height: 86vh;
                 }
                 @include xxsm {
-                    height: 75vh;
+                    height: 88vh;
                 }
             }
             &-category-image__mobile{
@@ -182,12 +202,12 @@
                     position: absolute;
                     img{
                         width: 100dvw;
-                        height: 250px;
+                        height: 300px;
                         object-fit: cover;                                               
                     }
                     h2{
                         position: absolute;
-                        top: 40%;
+                        top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
                         font-size: 50px;
@@ -197,7 +217,6 @@
                     } 
                 }
             }
-            // height: calc(100vh + 160px);
             height: 100vh;
             &__swiper{
                 padding-top: 80px;
@@ -267,6 +286,10 @@
                             height: 200px;
                         }
                         @include xsm {
+                            width: 150px;
+                            height: 160px;
+                        }                        
+                        @include breakpoint-dpr-up(390, 3){
                             width: 165px;
                             height: 180px;
                         }
@@ -402,7 +425,7 @@
                     margin-left: 10px;
                 }
                 @include sm {
-                    padding-top: 20vh;
+                    padding-top: 30vh;
                     margin-left: 10px;
                 }
             }
@@ -416,25 +439,29 @@
                         padding-top: 80px;
                     }
                     @include sm {
-                        padding-top: 20vh;
+                        padding-top: 30vh;
                     }
                 }
             }
             @include xl {
                 height: 60vh;
             }
+            @include lg {
+                height: 75vh;
+            }
             @include md {
                 height: 68vh;
             }
             @include sm {
-                height: 68vh;
+                height: 85vh;
             }
             @include xsm {
-                height: 74vh;
+                height: 86vh;
             }
             @include xxsm {
-                height: 75vh;
+                height: 88vh;
             }
         }
     }
+    // Products Display styles ENDS
 }

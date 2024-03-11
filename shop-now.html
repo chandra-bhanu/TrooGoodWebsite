@@ -11,19 +11,14 @@
     <link rel="icon" href="./favicon.ico">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="./css/font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" type='text/css' href="./css/font-awesome/css/brands.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <link rel='stylesheet' type='text/css' media='screen' href='./js/lib/swiperjs/swiper-bundle.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
-    <!-- <script type="importmap">
-        {
-            "imports":{
-                "three": "https://unpkg.com/three@0.158.0/build/three.module.min.js",
-                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
-            }
-        }
-    </script> -->
 </head>
 <body class="shop-page loading">
+    <!-- Intro (Loading Animation) STARTS -->
     <div class="intro_wrapper">
         <div class="">
             <svg viewBox="0 0 1531 204" xmlns="http://www.w3.org/2000/svg" class="intro">
@@ -35,7 +30,11 @@
             </svg>
         </div>
     </div>
+    <!-- Intro (Loading Animation) ENDS -->
+
+    <!-- Header STARTS -->
     <header>
+        <!-- Desktop Navigation Menu STARTS -->
         <div class="nav-menu" style="background-color: var(--grey-transparent-50pc);">
             <div class="left_menu">
                 <div class="header__logo">
@@ -44,9 +43,9 @@
                     </a>
                 </div>
                 <ul class="main_ul">
-                    <li data-l="122" data-w="150"><a href="./about-us.html">WHO WE ARE</a></li>
-                    <li data-l="220" data-w="192" class="submenu_holder">
-                        <a href="javascript:void(0);">WHAT WE CREATE</a>
+                    <li data-l="170" data-w="150"><a href="./about-us.html">ABOUT US</a></li>
+                    <li data-l="276" data-w="192" class="submenu_holder">
+                        <a href="javascript:void(0);">PRODUCTS</a>
                         <ul class="main_submenu slide_menu">
                             <div class="swiper submenu_slider">
                                 <div class="swiper-wrapper">
@@ -143,8 +142,9 @@
                             </div>
                         </ul>
                     </li>
-                    <li data-l="328" data-w="200"><a href="./what-people-say.html">WHAT PEOPLE SAY</a></li>
-                    <li data-l="426" data-w="150"><a href="./in-the-news.html">IN THE NEWS</a></li>
+                    <li data-l="365" data-w="200"><a href="./b2b.html">B2B</a></li>
+                    <li data-l="460" data-w="150"><a href="./in-the-news.html">IN THE NEWS</a></li>
+                    <li data-l="576"><a href="javascript:void(0);">TROO FAN</a></li>
                     <span class="hover_mask"></span>                
                 </ul>
             </div>    
@@ -194,7 +194,11 @@
                 </ul>
             </div>
         </div>
+        <!-- Desktop Navigation Menu ENDS -->
+
+        <!-- Mobile Navigation Menu STARTS -->
         <div class="mobile-nav-menu">
+            <!-- Mobile Navigation STARTS -->
             <div class="mobile-menu-wrap">
                 <nav role="navigation">
                     <div id="menuToggle">
@@ -203,10 +207,11 @@
                             <span></span>
                             <span></span>
                         <ul id="mobile-menu-items">
-                            <li><a href="./about-us.html">WHO WE ARE</a></li>
-                            <li class="has_sub"><a href="javascript:void(0);">WHAT WE CREATE</a><i class="material-icons chevron_right">&#xe5cc;</i></li>
-                            <li><a href="./what-people-say.html">WHAT PEOPLE SAY</a></li>
+                            <li><a href="./about-us.html">ABOUT US</a></li>
+                            <li class="has_sub"><a href="javascript:void(0);">PRODUCTS</a><i class="material-icons chevron_right">&#xe5cc;</i></li>
+                            <li><a href="./b2b.html">B2B</a></li>
                             <li><a href="./in-the-news.html">IN THE NEWS</a></li> 
+                            <li><a href="javascript:void(0);">TROO FAN</a></li>
                             <div class="mobile-footer-wrap">
                                 <ul>
                                     <li>
@@ -258,6 +263,9 @@
                     </svg>
                 </a>
             </div>
+            <!-- Mobile Navigation ENDS -->
+
+            <!-- Mobile Product Menu Display STARTS -->
             <div class="mobile-product-display">
                 <div class="back-link">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -344,7 +352,11 @@
                     </li>
                 </ul>
             </div>
+            <!-- Mobile Product Menu Display ENDS -->
         </div>
+        <!-- Mobile Navigation Menu ENDS -->
+
+        <!-- Search STARTS -->
         <div class="search">
             <div class="search--wrap">
                 <div class="search--wrap--left-icon">
@@ -363,7 +375,11 @@
                 </button>
             </div>
         </div>
+        <!-- Search ENDS -->
     </header>
+    <!-- Header ENDS -->
+
+    <!-- Main Layout STARTS -->
     <main class="layout-main">
         <!-- Hero Banner STARTS -->
         <section class="section__shop-page_hero fh_section" style="--shop-page-hero_bg-image: url(../images/shop-now/hero-bg.jpg);">
@@ -387,7 +403,7 @@
                     <h2>Namkeen</h2>
                 </div>
             </div>
-            <div class="section__shop-page_products-slider bg_orange" style="--slide-color: var(--color-orange);">
+            <div class="section__shop-page_products-slider bg-orange" style="--slide-color: var(--color-orange);">
                 <div class="section__shop-page_products-slider-category-image__mobile">
                     <img src="./images/shop-now/products/chikki/category-chikki.jpg" alt="Chikki">
                     <h2>Chikki</h2>
@@ -998,24 +1014,92 @@
                 </div>
             </div>
         </section>
+        <!-- Products Display ENDS -->
+
+        <!-- Footer STARTS -->
+        <section class="footer bg-blue">
+            <h1 class="footer_head">Let’s keep in touch</h1>
+            <p class="footer_sub-head">Subscribe to our page to receive updates and special announcements.</p>
+            <hr>
+            <div class="footer_links">
+                <div class="link">
+                    <a href="./profile/personal-info.html">My Account</a>
+                </div>
+                <div class="link">
+                    <a href="">Terms & Conditions</a>
+                </div>
+                <div class="link">
+                    <a href="">Refunds / cancellation</a>
+                </div>
+                <div class="link">
+                    <a href="">Privacy policy</a>
+                </div>
+                <div class="link">
+                    <a href="">Shipping policy</a>
+                </div>
+                <div class="link">
+                    <a href="">Download brochure</a>
+                </div>
+            </div>
+            <div class="footer_logo_wrap">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.04 87.21"><path d="M0 1.29v26.57h17.74v57.81H50.9v-57.6h14.71V1.13H3.4c-1.15 0-2.3.11-3.39.17ZM297.42 11.52c-17.67-15.96-44.92-14.57-60.88 3.1-6.74 7.47-10.35 16.65-10.98 25.97C224.05 18.08 205.32.32 182.45.4 165.73.46 151.3 10.05 144.2 24l.12-.8c-1.68-7.29-5.04-12.82-10.98-16.6-6.7-4.26-14.14-5.47-21.87-5.47H67.81v84.61h32.12V55.65c5.28 10.89 9.98 20.57 14.55 30h36.82c-3.85-6.22-7.4-11.96-10.95-17.69-3.54-5.72-7.08-11.43-10.73-17.32 3.84-1.94 6.89-4.39 9.74-7.35l.12.65.03-.29c.09 23.81 19.45 43.03 43.26 42.95 22.74-.08 41.26-17.77 42.8-40.11.75 10.74 5.46 21.21 14.08 28.99 17.67 15.96 44.92 14.57 60.88-3.1 15.95-17.67 14.57-44.92-3.1-60.88ZM115.45 33.38c-3.66 5.34-9.58 3.81-15.34 4.41V19.6c5.62.18 11.38-.93 15.21 4.08 2.19 2.87 2.15 6.77.14 9.7Zm48.64 19.64-.07-19.1 36.91-.13.07 19.1-36.91.13Zm109.85 10.41-24.92-27.24 14.09-12.89 24.91 27.24-14.09 12.89ZM619.64 2.5c-14.04-2.41-28.33-.64-42.51-1.01-1.11-.03-2.23.1-3.52.18l.08 33.3c-1.54-7.1-4.87-13.92-10.09-19.7-15.94-17.65-43.18-19.04-60.84-3.1-8.62 7.79-13.33 18.27-14.07 29.01-1.53-22.47-20.23-40.2-43.08-40.12-20.25.07-37.13 14.12-41.67 32.97h-36.7v17.44h8.06v8.33c-5.73 1.95-11.83.73-14.02-3.5-3.87-7.48-3.92-15.56-.56-23.11 2.9-6.52 9.55-6.28 15.59-6.53 6.4-.26 12.6 1.23 19 2.57V4.73c-1.15-.54-2.24-1.15-3.4-1.6-10.81-4.21-21.84-3.75-32.85-1.17-18.7 4.37-32.02 19.41-33.13 37.06-1.34 21.2 8.29 37.72 26.12 44.79 10.31 4.09 20.98 3.87 31.68 2.39 6.99-.97 13.72-2.88 19.63-7.48V58.06c.03.06.06.12.09.19v-6.32c3.69 20.12 21.31 35.35 42.48 35.27 22.74-.08 41.25-17.78 42.77-40.11.63 9.3 4.24 18.46 10.97 25.91 15.94 17.65 43.18 19.04 60.84 3.1 7.02-6.34 11.42-14.46 13.23-23.06l.08 32.97c.68.14 1.25.3 1.81.3 11.94 0 23.89.41 35.81-.13 24.78-1.12 38.72-14.5 41.35-38.94 2.37-22-11.39-41-33.13-44.74ZM436.4 62.52l-.13-36.89 19.08-.07.13 36.89-19.08.07Zm87.95.92-12.79-14.16 27.38-24.72 12.79 14.16-27.38 24.72Zm95.53-10.47c-3.43 6.19-9.46 5.67-15.62 5.67v-29c4.84-1.7 11.51-.28 14.37 2.99 3.36 3.85 4.19 15.04 1.25 20.34Z" style="fill:#fff;stroke-width:0"/></svg>
+                </div>                
+                <ul class="footer_social">
+                    <li class="footer_social__icons facebook"><a href="#"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="footer_social__icons instagram"><a href="#"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="footer_social__icons whatsapp"><a href="#"><i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="footer_social__icons linkedin"><a href="#"><i class="fab fa-linkedin-in fa-2x" aria-hidden="true"></i></a></li>
+                    <li class="footer_social__icons twitter"><a href="#"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer_address-wrap">
+                <div class="address">
+                    <h2>Manufactured By:</h2>
+                    <p>MFORMILLET FOODS PRIVATE LIMITED</p>
+                    <p>H.No. 1-98/9/3/46 & 47,Plot No 15 & 16</p>
+                    <p>Silicon Valley, Madhapur, Hyderabad, 500081</p>
+                    <p>Contact: <a href="tel:76888 68887">76888 68887</a></p>
+                </div>
+                <div class="address">
+                    <h2>Sold Online By:</h2>
+                    <p>VIRTUE DISTRIBUTORS</p>
+                    <p>Plot-147, Soorya Nivas,3rd FLR,</p>
+                    <p>Gopalreddy Nagar,Hyderabad, 500062</p>
+                    <p>Contact: <a href="tel:79988 18888">79988 18888</a></p>
+                </div>
+                <div class="address">
+                    <h2>Authorized marketing <br>partner for East India:</h2>
+                    <p>Rainmaker Food & Agro Pvt. Ltd.</p>
+                    <p>Ibl House, T1, 3rd Floor, Pl-1449/1524,</p>
+                    <p>Near Sai Temple, Cuttack Puri Bypass Road,</p>
+                    <p>Bhubaneswar, Odisha, 751018</p>
+                    <p>Contact: <a href="tel:94371 81189">94371 81189</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer ENDS -->
     </main>
-    
+    <!-- Main Layout ENDS -->
+
+    <!-- JQUERY Library -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- JQUERY Tilt Library used for having tilting effect on Product Images in the Header Menu  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <!-- Bootstrap Used for Pop-up -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <!-- Lenis Smooth Scroll Library -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <!-- GSAP Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/CustomEase.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
+    <!-- Swiper Slider Plugin -->
     <script src="./js/lib/swiperjs/swiper-bundle.min.js"></script>
+    <!-- Text Splitting Library used for animation purpose -->
     <script src="https://unpkg.com/split-type"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script> -->
-
-    <!-- <script src="./js/lenis.js"></script> -->
-    <!-- <script type="module" src='./js/canvas.js'></script> -->
+    <!-- Main JavaScript File -->
     <script src='./js/main.js'></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 .in-the-news-page{
+    // Hero Banner styles STARTS
     .section__in-the-news_hero{
         background-color: $color-bg-purple;
         display: flex;
@@ -19,7 +20,8 @@
             padding: 140px 80px;
         }
         @include sm {
-            padding: 150px 28px;
+            height: 90vh;
+            padding: 150px 28px 0px;
         }
         h1, h1 > .char{
             text-transform: uppercase;
@@ -123,6 +125,9 @@
             }
         }
     }
+    // Hero Banner styles ENDS
+
+    // News Articles display styles STARTS
     .section__in-the-news_articles{
         position: relative;
         // clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%);
@@ -130,22 +135,22 @@
             height: 42vh;
         }
         @include breakpoint-dpr-down(850, 2) {
-            height: 44vh;
+            height: 46vh;
         }
         @include md {
-            height: 50vh;
+            height: 46vh;
         }
         @include sm {
-            height: 85vh;
+            height: 95vh;
         }
         @include xsm {
-            height: 102vh;
+            height: 100%;
         }
         @include breakpoint-dpr-down(414, 2) {
             height: 90vh;
         }
         @include xxsm {
-            height: 94vh;
+            height: 100%;
         }
         @include breakpoint-dpr-down(380, 2) {
             height: 115vh;
@@ -232,7 +237,7 @@
                     @include xl {
                         font-size: 24px;
                         line-height: 34px;
-                        max-width: 92%;
+                        max-width: 100%;
                     }
                     @include breakpoint-dpr-down(850, 2) {
                         padding: 0px 0px;
@@ -251,7 +256,10 @@
             .news_articles{
                 padding: 0px 60px 0px;
                 @include xl {
-                    padding: 0px 20px 0px;
+                    padding: 0px 40px 0px 40px;
+                }
+                @include md {
+                    padding: 0px 40px 0px 20px;
                 }
                 @include sm {
                     padding: 0px 10px 0px;
@@ -261,12 +269,12 @@
                     justify-content: space-between;                    
                     @include sm {
                         flex-direction: column;
-                        // gap: 10px;
+                        gap: 15px;
+                    }
+                    @include xsm {
+                        gap: 10px;
                     }
                     .section__in-the-news_article{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
                         margin-right: 30px;
                         width: 100%;
                         max-width: 540px;
@@ -274,21 +282,25 @@
                         @include xl {
                             margin-right: 20px;
                         }
-                        a{                 
+                        a{
+                            display: flex;
+                            flex-direction: column;
                             @include sm {
-                                display: flex; 
                                 flex-direction: row;
                                 justify-content: flex-start;
                                 margin-right: 0px;
-                                margin-bottom: 10px;
+                                // margin-bottom: 10px;
                             }
                         }                        
                         &:last-child{
                             margin-right: 40px;
+                            @include xl {
+                                margin-right: 20px;
+                            }
                             a{                 
                                 @include sm {
                                     margin-right: 0px;
-                                    margin-bottom: 20px;
+                                    // margin-bottom: 20px;
                                 }
                             }
                         }
@@ -305,6 +317,9 @@
                                     height: -moz-fill-available;
                                     height: -webkit-fill-available;
                                     height: fill-available;
+                                }
+                                @include breakpoint-dpr-down(450, 3) {
+                                    height: 100% !important;
                                 }
                                 @include xsm {
                                     width: 190px;
@@ -330,11 +345,21 @@
                                 min-height: 160px;
                                 padding: 10px 10px 0px 20px;
                             }
-                            @include sm {
-                                padding: 10px 0px 0px 15px;
+                            @include md {
+                                min-height: 140px;
                             }
-                            @include xsm {
-                                min-height: 155px;
+                            @include sm {
+                                min-height: 160px;
+                                padding: 10px 10px 0px 15px;
+                            }  
+                            @include breakpoint-dpr-down(415, 2) {
+                                min-height: 140px;
+                            }                          
+                            @include breakpoint-dpr-down(395, 3) {
+                                min-height: 150px;
+                            }
+                            @include xxsm {
+                                min-height: 135px;
                             }
                             h2{
                                 font-family: $f_medium;
@@ -352,6 +377,10 @@
                                 @include xl {
                                     font-size: 18px;
                                     line-height: 28px;
+                                }
+                                @include md {
+                                    font-size: 16px;
+                                    line-height: 24px;
                                 }
                                 @include sm {
                                     font-size: 14px;
@@ -391,16 +420,19 @@
                         transform: translate3d(-35px, -60%, 0);
                     }
                     @include xl {
-                        transform: translate3d(-20px, -68%, 0);
+                        transform: translate3d(-20px, 95%, 0);
                     }
                     @include md {
-                        transform: translate3d(-20px, -80%, 0);
+                        transform: translate3d(-20px, 80%, 0);
                     }
                     @include sm {
                         top: 25%;
                         height: 25px;
                         transform: translate3d(60%, 50%, 0);
                         z-index: 2;
+                    }
+                    @include xxsm {
+                        top: 28%;
                     }
                     .swiper-pagination-bullet{
                         width: 42px;
@@ -431,11 +463,25 @@
                 }
             }                        
         }
+        .swiper-wrapper{
+            @include xl {
+                height: calc(42vh - 120px);
+            }
+            @include sm {
+                height: auto;
+            }
+        }
     }
+    // News Articles display styles ENDS
+
+    // Numbers section styles STARTS
     .section__in-the-news_numbers{
         background-color: $color-bg-purple;
         @include xl {
             height: 60vh;
+        }
+        @include lg {
+            height: 55vh;
         }
         @include sm {
             height: 100%;
@@ -475,11 +521,15 @@
                         line-height: 120px;
                     }
                     @include xl {
-                        font-size: 95px;
+                        font-size: 78px;
+                        line-height: 105px;
+                    }
+                    @include lg {
+                        font-size: 64px;
                         line-height: 105px;
                     }
                     @include md {
-                        font-size: 72px;
+                        font-size: 58px;
                         line-height: 78px;
                     }
                     @include sm {
@@ -502,6 +552,9 @@
                     align-items: flex-start;
                     padding: 60px 0px 30px;
                     gap: 20px;
+                }
+                @include lg {
+                    padding: 50px 0px 30px;
                 }
                 @include md {
                     padding: 20px 0px 20px;
@@ -549,6 +602,9 @@
                         }
                         @include xl {
                             padding: 20px 16px;
+                        }
+                        @include md {
+                            padding: 20px 12px;
                         }
                         @include sm {
                             height: 60px;
@@ -622,6 +678,9 @@
                         @include breakpoint(1366) {
                             padding: 110px 20px;
                         }
+                        @include md {
+                            padding: 100px 20px;
+                        }
                         @include sm {
                             padding: 80px 20px;
                         }
@@ -641,7 +700,7 @@
                                 @include breakpoint-dpr-down(1540, 2) {
                                     font-size: 18px;
                                     padding-left: 15px;
-                                }                                
+                                }
                                 @include breakpoint(1366) {
                                     font-size: 14px;
                                     line-height: 20px;
@@ -651,8 +710,17 @@
                                     line-height: 18px;
                                 }
                                 @include md {
-                                    font-size: 16px;
-                                    line-height: 20px;
+                                    font-size: 12px;
+                                    line-height: 18px;
+                                }
+                                @include sm {
+                                    padding-left: 80px;
+                                }
+                                @include xsm {
+                                    padding-left: 40px;
+                                }
+                                @include breakpoint-dpr-down(415, 2) {
+                                    padding-left: 60px;
                                 }
                                 @include xxsm {
                                     font-size: 14px;
@@ -765,10 +833,13 @@
                             img{
                                 width: 78px;
                                 height: 52px;
-                                @include md {
-                                    width: 48px;
-                                    height: 44px;
+                                @include lg {
+                                    width: 42px;
                                 }
+                                @include md {
+                                    width: 38px;
+                                    height: 40px;
+                                }                                
                             }
                             p{
                                 font-size: 16px;
@@ -780,7 +851,7 @@
                                 @include xl {
                                     font-size: 12px;
                                 }
-                                @include md {
+                                @include lg {
                                     font-size: 10px;
                                 }
                                 @include sm {
@@ -935,4 +1006,5 @@
             }
         }
     }
+    // Numbers section styles ENDS
 }

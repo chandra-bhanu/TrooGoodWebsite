@@ -1,15 +1,23 @@
 .cart-page{
     background-color: $color-bg-denim-blue;
+    // overflow: hidden;
     &.loading{
         .section__cart-page-items{
             background-color: var(--white-80pc);
         }
     }
+    // Cart Items styles START
     .section__cart-page-items{
+        position: relative;
+        width: 100%;
+        height: 100%;
         background-color: $color-bg-denim-blue;
         display: grid;
         grid-template-columns: 65% 35%;
         overflow: hidden;
+        @include xl {
+            min-height: 55vh;
+        }
         @include lg {
             grid-template-columns: auto;
         }
@@ -17,19 +25,20 @@
             display: flex;
             flex-direction: column;
         }
+        // Cart Items Wrap styles STARTS
         &__wrap{
-            padding: 120px 40px 20px;
+            padding: 120px 40px 80px;
             @include breakpoint-dpr-down(1540, 2) {
-                padding: 110px 40px 20px;
+                padding: 110px 40px 40px;
             }
             @include xxl {
-                padding: 100px 30px 20px;
+                padding: 100px 30px 40px;
             }
             @include breakpoint(1366) {
-                padding: 80px 20px 20px;
+                padding: 80px 20px 30px;
             }
             @include lg {
-                padding: 120px 20px 20px;
+                padding: 120px 20px 30px;
             }
             @include sm {
                 padding: 100px 15px 20px;
@@ -491,7 +500,7 @@
                 }
                 @include xl {
                     padding: 150px 30px;
-                    top: 20%;
+                    top: 50%;
                     transform: translate(calc(calc(65% / 2) - 30%), -50%);
                 }
                 @include xl-landscape {
@@ -587,12 +596,26 @@
                 }
             }
         }
+        // Cart Items Wrap styles ENDS
+
+        // Cart continue to payement styles STARTS
+        .continue-order-button{
+            margin: auto;
+        }
+        // Cart continue to payement styles ENDS
+
+        // Cart Order summary styles STARTS
         &__order-summary{
             margin: 120px 40px 20px;            
             background-color: var(--color-ateneo-blue);
-            position: relative;
+            position: absolute;
+            width: 35%;
+            right: 0;
+            top: 0;
             user-select: none;
             height: calc(100vh - 140px);
+            transform: translate(120%, 0%);
+            transition: transform 0.6s cubic-bezier(0.77,0.2,0.05,1.0);            
             @include breakpoint-dpr-down(1540, 2) {
                 height: calc(100vh - 20px);
                 margin: 110px 40px 20px;
@@ -625,12 +648,114 @@
             @include xxsm {
                 height: calc(70vh + 180px);
             }
+            .close_button{
+                text-decoration: none;
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                box-sizing: border-box;
+                cursor: pointer;
+                position: relative;
+                width: 50px;
+                height: 50px;
+                float: right;
+                top: 10px;
+                right: 10px;
+                z-index: 2;
+                @include breakpoint-dpr-down(1540, 2) {
+                    top: 0px;
+                }
+                @include xxl {
+                    right: -10px;
+                }
+                @include breakpoint(1366) {
+                    top: 5px;
+                    right: 5px;
+                    width: 40px;
+                    height: 40px;
+                }
+                @include sm {
+                    width: 36px;
+                    height: 36px;
+                }
+                @include xxsm {
+                    top: -8px;
+                }
+                &:before, &:after {
+                    content: "";
+                    position: absolute;
+                    height: 2px;
+                    width: 50%;
+                    background-color: var(--white-pure);
+                    transition: width .2s ease-out;
+                }
+                &:before {
+                    transform: rotate(45deg);
+                    left: 7px;
+                    top: 7px;
+                    transform-origin: left;
+                }
+                &:after {
+                    transform: rotate(-45deg);
+                    right: 7px;
+                    top: 7px;
+                    transform-origin: right;
+                }
+                .inner {
+                    color: var(--white-pure);
+                    &:before, &:after {
+                        content: "";
+                        position: absolute;
+                        height: 2px;
+                        width: 50%;
+                        background-color: var(--white-pure);
+                        transition: width .2s ease-out;
+                    }
+                    &:before {
+                        transform: rotate(45deg);
+                        transform-origin: right;
+                        bottom: 6px;
+                        right: 8px;
+                    }
+                    &:after {
+                        transform: rotate(-45deg);
+                        transform-origin: left;
+                        bottom: 6px; 
+                        left: 8px;
+                    }
+                }
+                .label {
+                    opacity: 0;
+                    text-transform: uppercase;
+                    transition: all .2s ease-out;
+                    @include breakpoint(1366) {
+                        font-size: 10px;
+                    }
+                    @include sm {
+                        font-size: 8px;
+                    }
+                }
+                &:focus, &:hover {
+                    &:before, &:after {
+                        width: 10px;
+                    }
+                    .inner {
+                        &:before, &:after {
+                            width: 10px;
+                        }
+                    }
+                    .label {
+                        opacity: 1;
+                    }
+                }
+            }
             // .swiper-slide{
             //     height: auto !important;
             // }
             .swiper-vertical{
                 touch-action: auto;
             }
+            // Order Summary Slides styles STARTS
             .order-summary{
                 padding: 60px 40px 30px 60px;
                 @include breakpoint-dpr2-up {
@@ -641,6 +766,9 @@
                 }
                 @include breakpoint(1366) {
                     padding: 50px 30px 65px 40px;
+                }
+                @include xl {
+                    padding: 50px 0px 65px 40px;
                 }
                 @include lg {
                     padding: 60px 40px 65px 60px;
@@ -677,6 +805,7 @@
                         line-height: 38px;
                     }
                 }
+                // Order Summary styles STARTS
                 .slide-wrap-summary{
                     padding-left: 40px;
                     @include breakpoint-dpr-down(1540, 2) {
@@ -740,7 +869,10 @@
                         border-top: 1px solid var(--white-pure);
                         padding: 60px 0px 100px;
                         @include breakpoint(1366) {
-                            padding: 40px 0px 80px;
+                            padding: 40px 0px 60px;
+                        }
+                        @include xl {
+                            padding: 40px 0px 40px;
                         }
                         > div{
                             &:last-child{
@@ -795,6 +927,9 @@
                         }
                     }
                 }
+                // Order Summary styles ENDS
+
+                // Payment-info styles STARTS
                 .slide-wrap-payment{
                     padding-left: 40px;
                     @include breakpoint-dpr-down(1540, 2) {
@@ -1036,6 +1171,9 @@
                         width: 212px;
                     }
                 }
+                // Payment-info styles ENDS
+
+                // Address-info styles STARTS
                 .slide-wrap-profile{
                     padding-left: 40px;
                     @include breakpoint-dpr-down(1540, 2) {
@@ -1184,10 +1322,16 @@
                                 @include breakpoint(1366) {
                                     margin-top: 10px !important;
                                 }
+                                @include xl {
+                                    margin-top: 0px !important;
+                                }
                             }
                         }
                     }                    
                 }
+                // Address-info styles ENDS
+
+                // Order-confirmation styles STARTS
                 .order-confirmation{
                     position: absolute;
                     z-index: -1;
@@ -1379,10 +1523,11 @@
                         transition: opacity 0.4s ease-out 0.2s;
                     }
                 }
-                // @include xl {
-                //     height: 55vh;
-                // }
+                // Order-confirmation styles ENDS                
             }
+            // Order Summary Slide styles ENDS
+
+            // Pagination styles STARTS
             .cart-pagination{
                 position: absolute;
                 top: 150px;
@@ -1404,14 +1549,15 @@
                     width: 25px;
                     height: 25px;
                     margin: 10px 0px;
-                    background-color: var(--color-ateneo-blue);
+                    background-color: var(--color-denim-blue);
                     border: 2px solid var(--color-denim-blue);
+                    opacity: 0.90;
                     &-active{
-                        background-color: var(--color-denim-blue);
+                        background-color: var(--color-ateneo-blue);
                     }
                     &-complete{
                         transition: all 0.6s ease-out;
-                        background-color: var(--color-denim-blue);
+                        background-color: var(--color-ateneo-blue);
                         border: 1px solid var(--color-denim-blue);
                         opacity: 0.9;
                     }
@@ -1421,6 +1567,18 @@
                     }
                 }
             }
+            // Pagination styles ENDS
+            &.show{
+                transform: translate(0%, 0%);
+                transition: transform 1.2s var(--ease-out-expo);
+            }
+            &.confirmed{                
+                .close_button{
+                    display: none;
+                    visibility: hidden;
+                }
+            }
         }
-    }      
+    }
+    // Cart Items styles ENDS
 }

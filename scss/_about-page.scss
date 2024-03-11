@@ -1,4 +1,5 @@
-.about-page{    
+.about-page{
+    // Hero Banner styles STARTS
     .section__about-page_hero{
         position: relative;
         background-color: $color-bg-beige;
@@ -80,7 +81,9 @@
             }
         }
     }
+    // Hero Banner styles ENDS
 
+    // Mission Vision styles STARTS
     .section__about-page_mission{
         display: flex;
         flex-direction: column;
@@ -207,7 +210,9 @@
             }
         }
     }
+    // Mission Vision styles ENDS
 
+    // History styles STARTS
     .section__about-page_history{
         display: flex;
         justify-content: space-around;
@@ -250,7 +255,9 @@
             }
         }
     }
+    // History styles ENDS
 
+    // Operations styles STARTS
     .section__about-page_operations{
         display: flex;
         justify-content: space-around;
@@ -306,7 +313,9 @@
             }
         }
     }
+    // Operations styles ENDS
 
+    // About Local styles STARTS
     .section__about-page_local{
         display: flex;
         justify-content: space-around;
@@ -408,7 +417,9 @@
             }
         }
     }
+    // About Local styles ENDS
 
+    // About Founder styles STARTS
     .section__about-page_founder-info{
         display: flex;
         justify-content: space-around;
@@ -487,7 +498,9 @@
             }
         }
     }
+    // About Founder styles ENDS
 
+    // Team styles STARTS
     .section__about-page_team{
         display: flex;
         flex-direction: column;
@@ -629,7 +642,9 @@
             }
         }
     }
+    // Team styles ENDS
 
+    // Contact styles STARTS
     .section__about-page_contact{
         display: grid;
         grid-template-columns: 50% auto;
@@ -963,4 +978,5 @@
 
         // }
     }
+    // Contact styles ENDS
 }

@@ -1,0 +1,26 @@
+serve: . 
+snapshots:
+  - name: Home Page
+    url: /index.html
+  - name: About Us Page
+    url: /about-us.html
+  - name: Products Page
+    url: /product-page.html
+  - name: What People say
+    url: /what-people-say.html
+  - name: In The News
+    url: /in-the-news.html
+  - name: Shop Now
+    url: /shop-now.html
+  - name: Cart Page
+    url: /cart.html
+  - name: Profile
+    url: /profile/personal-info.html
+  - name: Orders
+    url: /orders.html
+  - name: Address
+    url: /address.html
+  - name: Payment Methods
+    url: /payment-methods.html
+  - name: Support
+    url: /support.html

@@ -7,6 +7,7 @@
         display: flex;
         flex-direction: column;
         background-color: $color-bg-dollar-bill-green;
+        // Profile Info section styles STARTS
         .profile_info{
             margin: calc(90px + 15px) 40px 30px;
             display: flex;
@@ -80,6 +81,9 @@
                 }
             }            
         }
+        // Profile Info section styles ENDS
+
+        // Profile Navigation styles STARTS
         .navigation{
             position: fixed;
             width: 25vw;
@@ -198,6 +202,9 @@
                 left: -100vw;
             }
         }
+        // Profile Navigation styles ENDS
+
+        // Profile main Layout styles STARTS
         .main{
             position: absolute;
             width: calc(100% - 25vw);
@@ -223,6 +230,7 @@
                     z-index: 1;
                 }
             }
+            // Profile Orders layout styles STARTS
             .orders__wrap{
                 position: relative;
                 height: 100%;
@@ -555,6 +563,9 @@
                     }
                 }
             }
+            // Profile Orders layout styles ENDS
+
+            // Profile Personal-info layout styles STARTS
             .personal-info__wrap{
                 position: relative;
                 height: 100%;
@@ -679,6 +690,9 @@
                     }
                 }
             }
+            // Profile Personal-info layout styles ENDS
+
+            // Profile Payment-methods layout styles STARTS
             .payment-methods__wrap{
                 position: relative;
                 height: 100%;
@@ -905,6 +919,9 @@
                     }
                 }
             }
+            // Profile Payment-methods layout styles ENDS
+
+            // Profile Support layout styles STARTS
             .support__wrap{
                 position: relative;
                 height: 100%;
@@ -1097,6 +1114,9 @@
                     }
                 }
             }
+            // Profile Support layout styles ENDS
+
+            // Profile Address-info layout styles STARTS
             .address-info__wrap{
                 padding: calc(90px + 80px) 60px;
                 background-color: $color-bg-dollar-bill-green;
@@ -1213,8 +1233,10 @@
                     }
                 }                
             }
+            // Profile Address-info layout styles ENDS
         }
     }
+    // Profile Logout Pop-up styles STARTS
     .popup-container {
         visibility: hidden;
         opacity: 0;
@@ -1460,4 +1482,5 @@
             z-index: 2;
         }
     }
+    // Profile Logout Pop-up styles ENDS
 }

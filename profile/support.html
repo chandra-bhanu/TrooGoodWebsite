@@ -15,16 +15,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel='stylesheet' type='text/css' media='screen' href='../js/lib/swiperjs/swiper-bundle.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/main.css'>
-    <!-- <script type="importmap">
-        {
-            "imports":{
-                "three": "https://unpkg.com/three@0.158.0/build/three.module.min.js",
-                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
-            }
-        }
-    </script> -->
 </head>
 <body class="profile-page loading">
+    <!-- Intro (Loading Animation) STARTS -->
     <div class="intro_wrapper">
         <div class="">
             <svg viewBox="0 0 1531 204" xmlns="http://www.w3.org/2000/svg" class="intro">
@@ -36,7 +29,11 @@
             </svg>
         </div>
     </div>
+    <!-- Intro (Loading Animation) ENDS -->
+
+    <!-- Header STARTS -->
     <header>
+        <!-- Desktop Navigation Menu STARTS -->
         <div class="nav-menu" style="background-color: var(--grey-transparent-50pc);">
             <div class="left_menu">
                 <div class="header__logo">
@@ -45,9 +42,9 @@
                     </a>
                 </div>
                 <ul class="main_ul">
-                    <li data-l="122" data-w="150"><a href="../about-us.html">WHO WE ARE</a></li>
-                    <li data-l="220" data-w="192" class="submenu_holder">
-                        <a href="javascript:void(0);">WHAT WE CREATE</a>
+                    <li data-l="170" data-w="150"><a href="../about-us.html">ABOUT US</a></li>
+                    <li data-l="276" data-w="192" class="submenu_holder">
+                        <a href="javascript:void(0);">PRODUCTS</a>
                         <ul class="main_submenu slide_menu">
                             <div class="swiper submenu_slider">
                                 <div class="swiper-wrapper">
@@ -144,8 +141,9 @@
                             </div>
                         </ul>
                     </li>
-                    <li data-l="328" data-w="200"><a href="../what-people-say.html">WHAT PEOPLE SAY</a></li>
-                    <li data-l="426" data-w="150"><a href="../in-the-news.html">IN THE NEWS</a></li>
+                    <li data-l="365" data-w="200"><a href="../b2b.html">B2B</a></li>
+                    <li data-l="460" data-w="150"><a href="../in-the-news.html">IN THE NEWS</a></li>
+                    <li data-l="576"><a href="javascript:void(0);">TROO FAN</a></li>
                     <span class="hover_mask"></span>                
                 </ul>
             </div>    
@@ -194,8 +192,12 @@
                     </li>
                 </ul>
             </div>            
-        </div>        
+        </div>
+        <!-- Desktop Navigation Menu ENDS -->
+
+        <!-- Mobile Navigation Menu STARTS -->
         <div class="mobile-nav-menu">
+            <!-- Mobile Navigation STARTS -->
             <div class="mobile-menu-wrap">
                 <nav role="navigation">
                     <div id="menuToggle">
@@ -204,10 +206,11 @@
                             <span></span>
                             <span></span>
                         <ul id="mobile-menu-items">
-                            <li><a href="../about-us.html">WHO WE ARE</a></li>
-                            <li class="has_sub"><a href="javascript:void(0);">WHAT WE CREATE</a><i class="material-icons chevron_right">&#xe5cc;</i></li>
-                            <li><a href="../what-people-say.html">WHAT PEOPLE SAY</a></li>
+                            <li><a href="../about-us.html">ABOUT US</a></li>
+                            <li class="has_sub"><a href="javascript:void(0);">PRODUCTS</a><i class="material-icons chevron_right">&#xe5cc;</i></li>
+                            <li><a href="../b2b.html">B2B</a></li>
                             <li><a href="../in-the-news.html">IN THE NEWS</a></li> 
+                            <li><a href="javascript:void(0);">TROO FAN</a></li>
                             <div class="mobile-footer-wrap">
                                 <ul>
                                     <li>
@@ -259,6 +262,9 @@
                     </svg>
                 </a>
             </div>
+            <!-- Mobile Navigation ENDS -->
+
+            <!-- Mobile Product Menu Display STARTS -->
             <div class="mobile-product-display">
                 <div class="back-link">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -345,7 +351,11 @@
                     </li>
                 </ul>
             </div>
+            <!-- Mobile Product Menu Display ENDS -->
         </div>
+        <!-- Mobile Navigation Menu ENDS -->
+
+        <!-- Search STARTS -->
         <div class="search">
             <div class="search--wrap">
                 <div class="search--wrap--left-icon">
@@ -364,10 +374,14 @@
                 </button>
             </div>
         </div>
+        <!-- Search ENDS -->
     </header>
+    <!-- Header ENDS -->
+
+    <!-- Main Layout STARTS -->
     <main class="layout-main">
-        <!-- Profile START -->
         <section class="section__profile-page-container">
+            <!-- Profile Sidebar navigation STARTS -->
             <div class="navigation">
                 <span class="material-symbols-outlined close_menu"> menu_open </span>
                 <div class="profile_info">
@@ -496,6 +510,9 @@
                     </li>
                 </ul>
             </div>
+            <!-- Profile Sidebar navigation ENDS -->
+
+            <!-- Profile Main layout STARTS -->
             <div class="main">
                 <div class="menu_toggle">
                     <span class="material-symbols-outlined">menu</span>
@@ -548,8 +565,12 @@
                     </div>
                 </div>                
             </div>
+            <!-- Profile Main layout ENDS -->
         </section>
     </main>
+    <!-- Main Layout ENDS -->
+
+    <!-- Logout Pop-up STARTS -->
     <div id="logout" class="popup-container">        
         <div class="popup-content">
             <a href="#" class="close">
@@ -578,19 +599,26 @@
             </div>
         </div>
     </div>
+    <!-- Logout Pop-up ENDS -->
+
+    <!-- JQUERY Library -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- JQUERY Tilt Library used for having tilting effect on Product Images in the Header Menu  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <!-- Bootstrap Used for Pop-up -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <!-- Lenis Smooth Scroll Library -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <!-- GSAP Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/CustomEase.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
-    <script src="https://unpkg.com/cleave-zen@0.0.17/dist/cleave-zen.umd.js"></script>
+    <!-- Swiper Slider Plugin -->
     <script src="../js/lib/swiperjs/swiper-bundle.min.js"></script>
+    <!-- Text Splitting Library used for animation purpose -->
     <script src="https://unpkg.com/split-type"></script>
 
-    <!-- <script type="module" src='./js/canvas.js'></script> -->
+    <!-- Main JavaScript File -->
     <script src='../js/main.js'></script>
 </body>
 </html>

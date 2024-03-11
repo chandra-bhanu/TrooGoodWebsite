@@ -1,4 +1,8 @@
 .b2b-page{
+    @include xl {
+        background-color: $color-bg-pale-pink;
+    }
+    // Hero Banner styles STARTS
     .section__b2b-page_hero{
         position: relative;
         @include sm {
@@ -19,6 +23,9 @@
             background-repeat: no-repeat;
             @include sm {
                 display: none;
+            }
+            @include xl {
+                height: 85%;
             }
         }
         &-title{
@@ -62,6 +69,9 @@
             }
         }
     }
+    // Hero Banner styles ENDS
+
+    // About the business STARTS
     .section__b2b-page_business{
         padding: 100px 40px 20px;
         background-color: $color-bg-pale-pink;
@@ -86,11 +96,14 @@
             height: 105vh;
         }
         @include sm {
-            height: 75vh;
+            height: 80vh;
             padding: 0;
         }
         @include xsm {
             height: 85vh;
+        }
+        @include xxsm {
+            height: 82vh;
         }
         &-wrap{
             display: grid;
@@ -106,6 +119,9 @@
             @include breakpoint-dpr-down(850, 2) {
                 grid-template-columns: 1fr;
                 grid-template-rows: 30% 40% 30%;
+            }
+            @include lg {
+                grid-template-rows: 30% 35% 30%;
             }
             @include md {
                 grid-template-rows: 30% 35% 30%;
@@ -141,7 +157,7 @@
                     border-top-right-radius: 0;
                     border-bottom-right-radius: 0;
                 }
-            }
+            }            
             &__info{
                 display: grid;
                 grid-template-columns: 60% auto;
@@ -207,6 +223,7 @@
                 p {
                     color: var(--white-pure);
                 }
+                // Lets talk business styles STARTS
                 .business{
                     background-color: $color-bg-portland-orange;
                     grid-column: 1 / 3;
@@ -314,6 +331,9 @@
                         @include xl {
                             padding: 0px 40px 0px 0px;
                         }
+                        @include md {
+                            padding: 0px 30px 0px 0px;
+                        }
                         @include sm {
                             padding: 0px 20px 0px 0px;
                         }
@@ -378,6 +398,9 @@
                         }
                     }
                 }
+                // Lets talk business styles ENDS
+
+                // About partner companies styles STARTS
                 .partners{
                     background-color: $color-bg-orange-yellow;
                     padding: 20px 0px 20px;
@@ -396,14 +419,14 @@
                         padding: 15px 0px;
                     }
                     @include xl {
-                        padding: 40px 20px;
+                        padding: 40px 15px;
                     }
                     @include sm {
                         padding: 20px 10px;
                         border-radius: 40px;
                     }
                     @include xsm {
-                        padding: 15px 20px;
+                        padding: 15px 15px;
                     }
                     h2{
                         padding-right: 60px;
@@ -439,10 +462,10 @@
                                 padding: 20px 0 20px 20px;
                             }
                             @include sm {
-                                padding: 15px 0 15px 8px
+                                padding: 10px 0 10px 8px
                             }
                             @include xsm {
-                                padding: 10px 0 10px 5px;
+                                padding: 15px 0 15px 5px;
                             }
                         }
                         .logo{
@@ -497,6 +520,9 @@
                         }
                     }
                 }
+                // About partner companies styles ENDS
+
+                // About Numbers Impacted styles STARTS
                 .numbers{
                     background-color: $color-bg-violet-blue;
                     padding: 20px 20px 18px 30px;
@@ -549,7 +575,7 @@
                             padding-top: 50px;
                         }
                         @include sm {
-                            padding-top: 10px;
+                            padding-top: 28px;
                             padding-left: 6px;
                         }
                         @include xsm {
@@ -580,11 +606,11 @@
                                 line-height: 30px;
                             }
                             @include sm {
-                                font-size: 26px;
-                                line-height: 25px;
+                                font-size: 24px;
+                                line-height: 22px;
                             }
                             @include xsm {
-                                font-size: 22px;
+                                font-size: 20px;
                                 line-height: 14px;
                             }
                             @include xxsm {
@@ -638,11 +664,14 @@
                         }
                     }
                 }
+                // About Numbers Impacted styles ENDS
             }
+
+            // Pop-up Content Wrap styles STARTS
             &__content{
                 position: relative;
-                width: 100dvw;
-                height: 100dvh;
+                width: 100vw;
+                height: 100vh;
                 .close_button{
                     text-decoration: none;
                     background: transparent;
@@ -734,13 +763,14 @@
                         }
                     }
                 }
+                // Lets talk business Content styles STARTS
                 .business__content{
                     position: absolute;
                     width: 100%;
                     height: 100%;
                     top: 45px;
                     left: -40px;
-                    transform: translate(100%, -100%);
+                    transform: translate(105%, -100%);
                     padding: 120px 60px 80px;
                     background-color: $color-bg-portland-orange;
                     transition: transform 0.6s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -760,9 +790,10 @@
                     }
                     @include xl {
                         top: 40vh;
+                        left: -20px;
                     }
                     @include breakpoint-dpr-down(850, 2) {
-                        top: 36vh;
+                        top: 32vh;
                         left: 0px;
                     }
                     @include md {
@@ -772,19 +803,22 @@
                     @include sm {
                         padding: 50px 20px 20px;
                         left: 0px;
-                        top: 10px;
-                        height: 75dvh;
+                        top: 15px;
+                        height: 80vh;
                         overflow-y: scroll;
                     }
                     @include xsm {
-                        top: 12dvh;
-                        height: 90dvh;
+                        top: 10vh;
+                        height: 90vh;
                     }
-                    @include breakpoint-w-h-up(420, 890){
-                        top: 20dvh;
+                    @include breakpoint-dpr-down(420, 3){
+                        top: 15vh;
                     }
                     @include xxsm {
-                        top: 18dvh;
+                        top: 15vh;
+                    }
+                    @include breakpoint-dpr-down(375, 3){
+                        top: 10vh;
                     }
                     .section_title{
                         padding-right: 25%;
@@ -893,6 +927,10 @@
                                     @include sm {
                                         padding: 15px 0 0;
                                         margin-top: 5px;
+                                    }
+                                    @include xxsm {
+                                        padding: 10px 0 0;
+                                        margin-top: 0px;
                                     }
                                     .field__label{
                                         font-family: $f_semibold;
@@ -1032,6 +1070,15 @@
                                             }
                                         }
                                         &__reach-out{
+                                            @include sm {
+                                                margin-bottom: 20px;
+                                            }
+                                            @include xsm {
+                                                margin-bottom: 35px;
+                                            }
+                                            @include xxsm {
+                                                margin-bottom: 60px;
+                                            }
                                             h2{
                                                 font-family: $f_semibold;
                                                 font-size: 32px;
@@ -1051,6 +1098,10 @@
                                                 }
                                                 @include breakpoint-dpr-down(850, 2) {
                                                     font-size: 20px;
+                                                }
+                                                @include sm {
+                                                    font-size: 20px;
+                                                    margin-bottom: 10px;
                                                 }
                                                 @include xxsm {
                                                     font-size: 18px;
@@ -1081,9 +1132,14 @@
                                                     line-height: 22px;
                                                     margin-bottom: 10px;
                                                 }
+                                                @include sm {
+                                                    font-size: 16px;
+                                                    line-height: 24px;
+                                                    margin-bottom: 0px;
+                                                }
                                                 @include xxsm {
                                                     font-size: 14px;
-                                                    line-height: 16px;
+                                                    line-height: 22px;
                                                 }
                                             }
                                         }
@@ -1097,13 +1153,16 @@
                         transition: transform 1.2s var(--ease-out-expo);
                     }                    
                 }
+                // Lets talk business Content styles ENDS
+
+                // About partner companies Content styles STARTS
                 .partners__content{
                     position: absolute;
                     width: 100%;
                     height: 100%;
                     top: 45px;
                     left: -40px;
-                    transform: translate(0%, 100%);
+                    transform: translate(0%, 105%);
                     padding: 120px 40px 80px;
                     background-color: $color-bg-orange-yellow;
                     transition: transform 0.6s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -1120,9 +1179,10 @@
                     }
                     @include xl {
                         top: 40vh;
+                        left: -20px;
                     }
                     @include breakpoint-dpr-down(850, 2) {
-                        top: 36vh;
+                        top: 32vh;
                         left: 0px;
                     }
                     @include md {
@@ -1131,18 +1191,22 @@
                     @include sm {
                         padding: 50px 20px 20px;
                         left: 0px;
-                        top: 12px;
-                        height: 75dvh;
+                        top: 15px;
+                        height: 80vh;
                     }                    
                     @include xsm {
-                        top: 14dvh;
-                        height: 90dvh;
+                        top: 10vh;
+                        height: 90vh;
                     }
-                    @include breakpoint-w-h-up(420, 890){
-                        top: 20dvh;
+                    @include breakpoint-dpr-down(420, 3){
+                        top: 15vh;
                     }
                     @include xxsm {
-                        top: 18dvh;
+                        top: 15vh;
+                        height: 95vh;
+                    }
+                    @include breakpoint-dpr-down(375, 3){
+                        top: 14vh;
                     }
                     .close_partners__content{
                         @include breakpoint-dpr-down(1540, 2) {
@@ -1351,6 +1415,9 @@
                                         margin-top: -70px;
                                         margin-bottom: 30px;
                                     }
+                                    @include xsm {
+                                        margin-bottom: 40px;
+                                    }
                                     &:before{
                                         content: "";
                                         position: absolute;
@@ -1454,13 +1521,16 @@
                         transition: transform 1.2s var(--ease-out-expo);
                     }                    
                 }
+                // About partner companies Content styles ENDS
+
+                // About Numbers Impacted Content styles STARTS
                 .numbers__content{
                     position: absolute;
                     width: 100%;
                     height: 100%;
                     top: calc(5% - 5px);
                     left: -40px;
-                    transform: translate(0%, 100%);
+                    transform: translate(0%, 105%);
                     padding: 100px 0px 5px;
                     background-color: $color-bg-violet-blue;
                     transition: transform 0.6s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -1479,9 +1549,10 @@
                     }
                     @include xl {
                         top: 40vh;
+                        left: -20px;
                     }
                     @include breakpoint-dpr-down(850, 2) {
-                        top: 36vh;
+                        top: 32vh;
                         left: 0px;
                     }
                     @include md {
@@ -1491,18 +1562,21 @@
                         padding: 50px 0px 0px;
                         left: 0px;
                         top: 15px;
-                        height: 75dvh;
+                        height: 80vh;
                         overflow-y: scroll;
                     }
                     @include xsm {
-                        top: 14dvh;
-                        height: 90dvh;
+                        top: 10vh;
+                        height: 90vh;
                     }
-                    @include breakpoint-w-h-up(420, 890){
-                        top: 20dvh;
+                    @include breakpoint-dpr-down(420, 3){
+                        top: 15vh;
                     }
                     @include xxsm {
-                        top: 18dvh;
+                        top: 15vh;
+                    }
+                    @include breakpoint-dpr-down(375, 3){
+                        top: 10vh;
                     }
                     .close_button{
                         right: 40px;
@@ -1512,9 +1586,13 @@
                         @include md {
                             right: 18px;
                         }
+                        @include breakpoint-dpr-down(420, 2){
+                            top: -20px;
+                        }
                         @include xxsm {
                             right: 10px;
-                        }
+                            top: -20px;
+                        }                        
                     }
                     &__wrap{
                         height: 100%;                      
@@ -1533,7 +1611,10 @@
                                     padding-bottom: 15px;
                                 }
                                 @include sm {
-                                    padding-bottom: 25px;
+                                    padding-bottom: 50px;
+                                }
+                                @include xsm {
+                                    padding-bottom: 30px;
                                 }
                                 h1 {
                                     font-family: $f_bold;
@@ -1569,13 +1650,13 @@
                             display: grid;
                             grid-gap: 10px;
                             grid-template-columns: repeat(5, minmax(260px, 1fr));
-                            max-height: 75dvh;
+                            max-height: 75vh;
                             overflow-y: scroll;
                             @include breakpoint-dpr-down(1540, 2) {
-                                max-height: 78dvh;
+                                max-height: 78vh;
                             }
                             @include xxl {
-                                max-height: 76dvh;
+                                max-height: 76vh;
                             }
                             @include breakpoint-dpr-down(1300, 2) {
                                 grid-template-columns: repeat(5, minmax(245px, 1fr));
@@ -1590,6 +1671,7 @@
                                 grid-template-columns: repeat(5, minmax(142px, 1fr));
                             }
                             @include sm {
+                                max-height: 78vh;
                                 overflow-x: scroll;
                                 overflow-y: hidden;
                             }
@@ -1659,6 +1741,9 @@
                                     @include breakpoint-dpr-down(850, 2) {
                                         line-height: 38px;
                                     }
+                                    @include sm {
+                                        line-height: 20px;
+                                    }
                                 }
                             }
                             h2{
@@ -1688,6 +1773,17 @@
                                 }
                                 @include md {
                                     font-size: 14px;
+                                }
+                                &.pad-left-30{
+                                    @include breakpoint-dpr-down(1200, 2){
+                                        padding-left: 40px;
+                                    }
+                                    @include breakpoint-dpr-up(375, 3){
+                                        padding-left: 30px;
+                                    }
+                                    @include breakpoint-dpr-down(420, 2){
+                                        padding-left: 30px;
+                                    }
                                 }
                             }
                             .text-right{
@@ -1781,6 +1877,7 @@
                         transition: transform 1.2s var(--ease-out-expo);
                     } 
                 }
+                // About Numbers Impacted Content styles ENDS
             }
         }
     }

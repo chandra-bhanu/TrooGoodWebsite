@@ -1,10 +1,16 @@
 let lenis;
-$(function() {    
+$(function() {
+    /**
+     * GSAP Plugins registered
+     */
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(CustomEase);
-    gsap.registerPlugin(Flip);
 
     let header = $('header .nav-menu'), mobile_header = $('header .mobile-nav-menu');
+    
+    /**
+     * Custom Smooth Scrolling Library (Lenis) initialization
+     */
     lenis = new Lenis({
         duration: 1.4,
         easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
@@ -147,7 +153,7 @@ buttonElements.forEach((buttonElement) => {
 });
 
 /**
- * Get the page Name by 'body' class name
+ * Getting the page Name by 'body' class name
  */
 let pageName = $('body').hasClass('home') ? 'home' : 
 $('body').hasClass('shop-page') ? 'shop' : 
@@ -158,6 +164,9 @@ $('body').hasClass('b2b-page') ? 'b2b-page' :
 $('body').hasClass('cart-page') ? 'cart-page' : 
 $('body').hasClass('profile-page') ? 'profile-page' : '';
 
+/**
+ * Intro Animation
+ */
 const playIntro = () => {
     setTimeout(function(){
         const intro_wrapper = document.querySelector('.intro_wrapper');
@@ -193,33 +202,13 @@ const playIntro = () => {
             img_wraps.forEach(img_wrap => {
                 img_wrap.classList.add('reveal');
             });
-            // const imgs = gsap.utils.toArray('img', slides[0]);
-            // const img_divs = gsap.utils.toArray('.img_wrap', slides[0]);
-            // var yDist = 100;
-    
-            // gsap.from(img_divs, {
-            //     duration: 0.8,
-            //     opacity: 0,
-            //     y: i => i == 1 ? -yDist - i * yDist : yDist + i * yDist,
-            // });
-            // imgs.forEach(img => {
-                // gsap.from(img, )
-                // console.log(img);
-                // let img_wrap = $(img).parent('div');
-                // gsap.from(img_wrap, {
-                //     duration: 1,
-                //     opacity: 0,
-                //     y: "100%"
-                // });
-                // gsap.from(img, {
-                //     duration: 1,
-                //     x: "30"
-                // });
-            // });
         }, 2500);
     }    
 }
 
+/**
+ * On load script initialization
+ */
 window.onload = function() {
     playIntro();
     setTimeout(function() {
@@ -230,10 +219,14 @@ window.onload = function() {
     initMenu();
 };
 
+/**
+ * GSAP match-media breakpoints to identify screen resolutions
+ */
 let gsapMatchMedia = gsap.matchMedia();
 let breakPointDesktopLarge = 1900;
 let breakPointLaptopLarge = 1440;
 let breakPointLaptopMedium = 1366;
+let breakPointTabLarge = 1024;
 let breakPointTabMedium = 768;
 let breakPointMobile = 460;
 
@@ -334,33 +327,47 @@ const initMenu = () => {
     let timeOut, paddingVal = 20;
 
     const setCurrentMenu = () => {
-        currenTranslateXValue = $('.main_ul li.current').length ? $('.main_ul li.current').data('l') + '%' : currenTranslateXValue;
-        currenTransformValue = 'translate(' + currenTranslateXValue + ', ' + currenTranslateYValue + ')';
-        $('.hover_mask').css('transform', currenTransformValue);
-        $('.main_ul li.current a').addClass('current');
+        gsapMatchMedia.add({
+            isTabLarge: `(min-width: ${breakPointTabLarge + 1}px)`,
+            isMobile: `(max-width: ${breakPointMobile}px)`,
+        }, (context) => {
+            let { isTabLarge } = context.conditions;
+            if(isTabLarge){
+                currenTranslateXValue = $('.main_ul li.current').length ? $('.main_ul li.current').data('l') + '%' : currenTranslateXValue;
+                currenTransformValue = 'translate(' + currenTranslateXValue + ', ' + currenTranslateYValue + ')';
+                $('.hover_mask').css('transform', currenTransformValue);
+                $('.main_ul li.current a').addClass('current');
+            }
+        });
     };   
 
     setCurrentMenu();
 
-    $('.main_ul li').hover(function() {
-        let index = $(this).index();
-        $(this).parent().toggleClass('li_hovered_0'+(index + 1));
-        let translateXValue = $(this).data('l') + '%';
-        let translateYValue = '-50%';
-        let transformValue = 'translate(' + translateXValue + ', ' + translateYValue + ')';
-        $('.hover_mask').css('transform', transformValue);
-        $(this).parent().find('a').removeClass('current');
-        $(this).find('a').addClass('current');
-        if(timeOut)
-            clearTimeout(timeOut);
-    }, function() {
-        let links = $(this).parent().find('a');
-        timeOut = setTimeout (function() {
-            $('.hover_mask').css('transform', currenTransformValue);
-            links.removeClass('current');
-            setCurrentMenu();
-        }, 1000);
-    });
+    let isTouchDevice = ('ontouchstart' in window || 'onmsgesturechange' in window);
+    if(!isTouchDevice){
+        $('.main_ul li').on({
+            mouseenter: function() {
+                let index = $(this).index();
+                $(this).parent().toggleClass('li_hovered_0'+(index + 1));
+                let translateXValue = $(this).data('l') + '%';
+                let translateYValue = '-50%';
+                let transformValue = 'translate(' + translateXValue + ', ' + translateYValue + ')';
+                $('.hover_mask').css('transform', transformValue);
+                $(this).parent().find('a').removeClass('current');
+                $(this).find('a').addClass('current');
+                if(timeOut)
+                    clearTimeout(timeOut);
+            },
+            mouseleave: function() {
+                let links = $(this).parent().find('a');
+                timeOut = setTimeout (function() {
+                    $('.hover_mask').css('transform', currenTransformValue);
+                    links.removeClass('current');
+                    setCurrentMenu();
+                }, 1000);
+            }
+        });
+    }
 
     $('.main_ul li').on('mouseenter', function(){
         $(this).addClass('active').siblings().removeClass('active');
@@ -409,7 +416,16 @@ const initMenu = () => {
     });
 }
 
+const animateFooter = () => {
+}
+
+/**
+ * Home page specific scripts
+ */
 if(pageName === 'home') {
+    
+    gsap.registerPlugin(MotionPathPlugin);
+
     //Custom Cursor
     let cursor_ball = $(".cursor__ball--big");
         document.body.addEventListener("mousemove", (function(e) {
@@ -427,16 +443,19 @@ if(pageName === 'home') {
 
     var interleaveOffset = 0.5;
 
-    //Swiper Sliders
+    //Banner slider Options
     let swiperOptionsHeroSlider = {
         parallax: true,
         speed: 1200,
+        // initialSlide: 1,
         keyboard: {
             enabled: true,
             onlyInViewport: true,
         },
-        // watchSlidesProgress: true,
         on:{
+            /**
+             * Slide-change event callback
+             */
             slideChange: (swiper) => {
                 if(swiper.previousIndex === 0){
                     let theSlide = $(swiper.slides[swiper.previousIndex]);
@@ -460,8 +479,55 @@ if(pageName === 'home') {
                         $(t).removeClass('reverse');
                         $(t).addClass('reveal');
                     });                
-                    let bagImg = theSlide.find('.bag_img');
-                    $(bagImg).addClass('reveal');
+                    // let bagImg = theSlide.find('.bag_img');
+                    // $(bagImg).addClass('reveal');
+                    gsap.set("#introSlide .cyclist", {
+                        // opacity: 1,
+                        xPercent: -25,
+                        yPercent: -20,
+                        rotation: 18
+                    });
+                    // gsap.set("#introSlide .cyclistPath", {
+                    //     xPercent: -1,
+                    //     yPercent: 5,
+                    //     scale: 1.05,
+                    // });
+                    let ride = gsap.to("#introSlide .cyclist", {
+                        delay: 1.2,
+                        motionPath: {                                
+                            path: "#introSlide .cyclistPath",
+                            align: "#introSlide .cyclistPath",
+                            ease: "power2",
+                            autoRotate: true,
+                            alignOrigin: [0.5, 1],
+                            // start: 0.01,
+                        },
+                        duration: 10,
+                        onComplete: function(){
+                            // let progress = ride.progress();
+                            // if(progress > 0.98 && progress < 1) {
+                                gsap.to("#introSlide .cyclist", 0.5, {
+                                    // xPercent: 40,
+                                    // yPercent: -6,
+                                    opacity: 0
+                                });
+                            // }
+                        },
+                        onUpdate: function(){
+                            let progress = ride.progress();
+                            if(progress > 0.01) {
+                                gsap.to("#introSlide .cyclist", 0.2,{
+                                    opacity: 1
+                                });
+                            }
+                        //     if(progress > 0.98 && progress < 1) {
+                        //         gsap.to("#introSlide .cyclist", 1.5, {
+                        //             xPercent: 40,
+                        //             yPercent: -6,
+                        //         });
+                        //     }
+                        },
+                    });
                 }
                 if(swiper.activeIndex === 0){
                     let theSlide = $(swiper.slides[swiper.previousIndex]);
@@ -469,10 +535,10 @@ if(pageName === 'home') {
                     text.each((i, t) => {
                         $(t).removeClass('reveal');
                     });
-                    setTimeout(() => {
-                        let bagImg = theSlide.find('.bag_img');
-                        $(bagImg).removeClass('reveal');
-                    }, 1000);
+                    // setTimeout(() => {
+                    //     let bagImg = theSlide.find('.bag_img');
+                    //     $(bagImg).removeClass('reveal');
+                    // }, 1000);
                 }
                 if(swiper.activeIndex === 2){
                     let theSlide = $(swiper.slides[swiper.previousIndex]);
@@ -481,102 +547,98 @@ if(pageName === 'home') {
                         $(t).addClass('reverse');
                         $(t).removeClass('reveal');
                     });
-                    setTimeout(() => {
-                        let bagImg = theSlide.find('.bag_img');
-                        $(bagImg).removeClass('reveal');
-                    }, 1000);
+                    // setTimeout(() => {
+                    //     let bagImg = theSlide.find('.bag_img');
+                    //     $(bagImg).removeClass('reveal');
+                    // }, 1000);                    
                 }
-                // Third Slide
-                if(swiper.activeIndex === 2){
-                    let theSlide = $(swiper.slides[swiper.activeIndex]);
-                    let text = theSlide.find('h1');
-                    text.each((i, t) => {
-                        $(t).removeClass('reverse');
-                        $(t).addClass('reveal');
-                    });
-                    let logoImg = theSlide.find('.inner_cnt img');
-                    logoImg.addClass('reveal');
-                    let textP = theSlide.find('.inner_cnt p');
-                    textP.addClass('reveal');
-                    const contentLines = new SplitType(textP, { types: 'lines' });
-                    let animateLines = gsap.to(contentLines.lines, {
-                        x: 0,
-                        opacity: 1,
-                        stagger: 0.05,
-                        delay: 0.3,
-                        duration: 1.2,
-                        ease:"power2.out",
-                    });
-                }
-                if(swiper.activeIndex === 1){
-                    let theSlide = $(swiper.slides[swiper.previousIndex]);
-                    let text = theSlide.find('h1');
-                    text.each((i, t) => {
-                        $(t).removeClass('reveal');
-                    });
-                    setTimeout(() => {
-                        let logoImg = theSlide.find('.inner_cnt img');
-                        logoImg.removeClass('reveal');
-                        let textP = theSlide.find('.inner_cnt p');
-                        textP.removeClass('reverse');
-                    }, 1000);
-                }
-                if(swiper.activeIndex === 3){
-                    let theSlide = $(swiper.slides[swiper.previousIndex]);
-                    let text = theSlide.find('h1');
-                    text.each((i, t) => {
-                        $(t).addClass('reverse');
-                        $(t).removeClass('reveal');
-                    });
-                    setTimeout(() => {
-                        let logoImg = theSlide.find('.inner_cnt img');
-                        logoImg.removeClass('reveal');
-                        let textP = theSlide.find('.inner_cnt p');
-                        textP.removeClass('reveal');
-                        textP.addClass('reverse');
-                    }, 1000);
-                }
-                //Fourth Slide
-                if(swiper.activeIndex === 3){
-                    let theSlide = $(swiper.slides[swiper.activeIndex]);
-                    let textP = theSlide.find('.cntblk p');
-                    textP.addClass('reveal');
-                    const contentLines = new SplitType(textP, { types: 'lines' });
-                    let animateLines = gsap.to(contentLines.lines, {
-                        x: 0,
-                        opacity: 1,
-                        stagger: 0.05,
-                        delay: 0.3,
-                        duration: 1.2,
-                        ease:"power2.out",
-                    });
-                }
-                if(swiper.activeIndex === 2){
-                    let theSlide = $(swiper.slides[swiper.previousIndex]);
-                    setTimeout(() => {
-                        let textP = theSlide.find('.cntblk p');
-                        textP.removeClass('reverse');
-                    }, 1000);
+                //Timeline Slides - Cyclist animation along the path
+                if(swiper.activeIndex === 2 || swiper.activeIndex === 3 || swiper.activeIndex === 4 || swiper.activeIndex === 5  || swiper.activeIndex === 6  || swiper.activeIndex === 7){
+                    const animateCyclist = (svgId, x, y, tilt) => {
+                        gsap.set(svgId+" .cyclist", {
+                            xPercent: x,
+                            yPercent: y,
+                            rotation: tilt
+                        });
+                        let ride = gsap.to(svgId+" .cyclist", {
+                            delay: 1.4,
+                            motionPath: {
+                                path: svgId+" .cyclistPath",
+                                align: svgId+" .cyclistPath",
+                                ease: CustomEase.create("custom", "M0,0 C0.984,0.669 0.492,1 1,1 "),
+                                autoRotate: true,
+                                alignOrigin: [0.5, 1],
+                                // start: 0.02,
+                                // end: 0.98
+                            },
+                            duration: 10,
+                            onComplete: function(){
+                                gsap.to(svgId+" .cyclist", 0.5, {
+                                    opacity: 0
+                                });
+                            },
+                            onUpdate: function(){
+                                let progress = ride.progress();
+                                if(progress > 0.01) {
+                                    gsap.to(svgId+" .cyclist", 0.2,{
+                                        opacity: 1
+                                    });
+                                }
+                            },
+                        });
+                    } 
+                    switch (swiper.activeIndex) {
+                        case 2:
+                            animateCyclist('#y_2018', -30, -20, 15)
+                            break;
+                        case 3:
+                            animateCyclist('#y_2019', -90, 55, -30)
+                            break;
+                        case 4:
+                            animateCyclist('#y_2020', -45, -20, 15)
+                            break;
+                        case 5:
+                            animateCyclist('#y_2021', -85, 30, -15)
+                            break;
+                        case 6:
+                            animateCyclist('#y_2022', -100, 190, -75)
+                            break;
+                        case 7:
+                            animateCyclist('#y_2023', -85, 30, -20)
+                            break;
+                        default:
+                            break;
+                    }                                        
                 }
             },
         }
     }
 
+    /**
+     * Banner Slider Initalisation
+     */
     let heroSlider = new Swiper('.hero_slider', swiperOptionsHeroSlider);
 
+    /**
+     * Custom Cursor Onclick-event handler
+     */
     $('.hero_slider').on('click', (e) => {
-        const clickTarget = $(e.target).parents('.slide');    
+        const clickTarget = $(e.target).parents('.slide');
+        let cursorIsPrev = $(".cursor").hasClass('prev__slide'), cursorIsNext = $(".cursor").hasClass('next__slide');
         if(clickTarget.length > 0) {
             const clickTargetWidth = clickTarget[0].offsetWidth;
             const xCoordInClickTarget = e.clientX - clickTarget[0].getBoundingClientRect().left;
             if (clickTargetWidth / 2 > xCoordInClickTarget) {
-                heroSlider.slidePrev();
+                cursorIsPrev && heroSlider.slidePrev();
             } else {
-                heroSlider.slideNext();
+                cursorIsNext && heroSlider.slideNext();
             }
-        }    
+        }
     });
 
+    /**
+     * Snacking section on-scroll appearance animation STARTS
+     */
     let tlSnackingImage = gsap.timeline({
         scrollTrigger: {
             trigger: ".snacking",
@@ -626,20 +688,26 @@ if(pageName === 'home') {
         y: -15,
         ease: "power1.out",
     }, '+=0.4');
+    /**
+     * Snacking section on-scroll appearance animation ENDS
+     */
 
     /**
-     * Product Slider
+     * Product Slider - On-scroll initialisation and animation STARTS
      * 
      */
     const slideDuration = 5, slideDelay = 0.5;
     let isProductSlidesPlaying = false;
     const slides = gsap.utils.toArray('.products_slider .slide');
+    // Background colors of the Slides
     const bgColors = [
         ["#b33611", "#f94a2a", "#df6d51", "#5e1503"],
         ["#76329d", "#5e0669", "#6f094e", "#5e2a99"],
         ["#ac3708", "#d27d04", "#a18d08", "#d5591b"],
         ["#27d661", "#17d791", "#086ccd", "#06819c"],
     ];
+
+    // Setting z-index for each slides, functions to set Slide z-index property
     const setSlides = () => {
         gsap.set(slides, {
             zIndex: (index) => slides.length - index,
@@ -668,6 +736,7 @@ if(pageName === 'home') {
         });
     }
 
+    // Product slider animation function
     const playProductSlider = () => {
         const mainTl = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 5, onRepeat: () => {
             setSlides();
@@ -710,8 +779,8 @@ if(pageName === 'home') {
         mainTl.add(slideTl, 0);
     }
 
+    // Outlined SVG Animation
     const animateTextSVG = (trigger) => {
-        // let pathElements = $('.product_info:eq(1) .product_info_category .txt0');
         let pathElements = $('.product_info_category .txt0');
         let txt = gsap.utils.toArray(pathElements);
         let tl = trigger ? gsap.timeline({
@@ -720,7 +789,6 @@ if(pageName === 'home') {
         tl.to(txt, {
             strokeDashoffset: 0,
             onStart: ()=>{
-                // productsSwiper.init();
                 if(!isProductSlidesPlaying){
                     setTimeout(() => {
                         playProductSlider();
@@ -731,6 +799,7 @@ if(pageName === 'home') {
         }, 0);
     }
 
+    // Scroll-trigger for Outlined SVG animation 
     let scrolT = {
         trigger: '.products_slider',
         start: 'top+=10% center+=20%',
@@ -740,14 +809,21 @@ if(pageName === 'home') {
     }
 
     animateTextSVG(scrolT);
+    /**
+     * Product Slider - On-scroll initialisation and animation ENDS
+     * 
+     */
 
-    //Testimonials
+    /**
+     *  Testimonials - Cards on-scroll animation STARTS
+     */    
     let t;
     let cards = gsap.utils.toArray('#testimonial_cards .card');
     const angle = 10, offsetHeight = 100;
     const overwrite = "auto";
     let pinDistance = window.innerHeight * cards.length;
 
+    // Pinned scroll-trigger to keep the section pinned untill all cards are animated
     ScrollTrigger.create({
         id: "pinned",
         trigger: '.testimonial',
@@ -760,7 +836,6 @@ if(pageName === 'home') {
         // invalidateOnRefresh: true,
         ease: 'none'
     });
-
     const animateCardsOnScroll = () => {
         gsapMatchMedia.add({
             isDesktop: `(min-width: ${breakPointDesktopLarge + 1}px)`,
@@ -906,6 +981,7 @@ if(pageName === 'home') {
     }
     animateCardsOnScroll();
 
+    // Testimonial Cards - hover animation
     const cardHoverAnimations = () => {
         cards.forEach((card, i) => {
             let siblingsLeft = cards.slice(i+1),
@@ -937,6 +1013,7 @@ if(pageName === 'home') {
         });
     }
 
+    // Slider in the Testimonials Pop-up
     let testimonialSlider = new Swiper('#goodluckcharms_swiper', {
         effect: 'fade',
         slidesPerView: 'auto',
@@ -975,9 +1052,13 @@ if(pageName === 'home') {
             $('body').css({ overflow: '', paddingRight: '' });        
         }, 1000);
     });
+    /**
+     *  Testimonials - Cards on-scroll animation ENDS
+     */ 
 
-
-    //Our Inspiration section Animation on Scroll
+    /**
+     *  Our Inspiration section Animation on-scroll STARTS
+     */    
     const animateOnScroll = () => {
         gsapMatchMedia.add({
             isDesktop: `(min-width: ${breakPointDesktopLarge + 1}px)`,
@@ -1041,8 +1122,13 @@ if(pageName === 'home') {
     }
 
     animateOnScroll();
+    /**
+     *  Our Inspiration section Animation on-scroll ENDS
+     */
 
-    //About Us section Animation on Scroll
+    /** 
+     * About Us section Animation on-scroll STARTS
+     */
     const animateOnScrollAbout = () => {
         const aboutContentP = new SplitType($('.about_content p'), { types: 'words' });
         gsapMatchMedia.add({
@@ -1113,8 +1199,13 @@ if(pageName === 'home') {
     }
 
     animateOnScrollAbout();
+    /** 
+     * About Us section Animation on-scroll ENDS
+     */
 
-    //Contact Us section Animation on Scroll
+    /**
+     * Contact Us section Animation on-scroll STARTS
+     */
     const animateOnScrollContact = () => {
         const contactTitle = new SplitType($('.contact_title h1'), { types: 'chars' });
         const contactInfoEmail = new SplitType($('.contact_info h2.contact_info_email'), { types: 'chars' });
@@ -1201,8 +1292,14 @@ if(pageName === 'home') {
     }
 
     animateOnScrollContact();
+    /**
+     * Contact Us section Animation on-scroll ENDS
+     */
 }
 
+/**
+ * Shop page specific scripts
+ */
 if(pageName === 'shop') {
     let shopPageProductSwiper = new Swiper(".section__shop-page_products-slider__swiper", {   
         slidesPerView: 4,
@@ -1318,6 +1415,9 @@ if(pageName === 'shop') {
     }
 }
 
+/**
+ * Products page specific scripts
+ */
 if(pageName === 'products') {
     const shopBannerHeading =  new SplitType($('.section__product-page_hero-title h1'), { types: 'chars' });
     
@@ -1349,7 +1449,7 @@ if(pageName === 'products') {
 
         let productIntroTitle = new SplitType($('.section__product-page_category_title h2'), { types: 'words' });
         let productBg = new SplitType($('.section__product-page_category_bg h1'), { types: 'chars' });
-        let productAbout = isMobile ? new SplitType($('.product_category__content__about p'), { types: 'lines' }) : new SplitType($('.product_category__content__about p'), { types: 'words' });
+        let productAbout = isMobile ? $('.product_category__content__about p') : new SplitType($('.product_category__content__about p'), { types: 'words' });
         gsap.timeline({
             scrollTrigger: {
                 trigger: '.section__product-page_category',
@@ -1376,7 +1476,7 @@ if(pageName === 'products') {
             rotationZ: 10,
             skewY: 10,
             ease: 'expo.out',
-        }, isMobile ? 1 : 0.5).from(isMobile ? productAbout.lines : productAbout.words, .8, {
+        }, isMobile ? 1 : 0.5).from(isMobile ? productAbout : productAbout.words, .8, {
             opacity: 0,
             stagger: .08,
         }, 0).from('.product_category__content__usp-list li .usp_icon', 0.8, {
@@ -1440,7 +1540,7 @@ if(pageName === 'products') {
         productDetails.forEach((productDetailsWrap, index) => {        
             if(index === 0){
                 let productDetailsTitle = new SplitType($(productDetailsWrap).find('.product_info_intro__title h3'), { types: 'chars' });
-                let productAbout = isMobile ? new SplitType($(productDetailsWrap).find('.product_info_description__about p'), { types: 'lines' }) : new SplitType($(productDetailsWrap).find('.product_info_description__about p'), { types: 'words' });
+                let productAbout = isMobile ? $(productDetailsWrap).find('.product_info_description__about p') : new SplitType($(productDetailsWrap).find('.product_info_description__about p'), { types: 'words' });
                 let pathElements = $(productDetailsWrap).find('.product_info_category .txt0');
                 let txt = gsap.utils.toArray(pathElements);
                 gsap.timeline({
@@ -1463,7 +1563,7 @@ if(pageName === 'products') {
                     opacity: 0,
                     ease: "power4",
                     stagger: 0.1
-                }, 0.5).from(isMobile ? productAbout.lines : productAbout.words, 0.8, {
+                }, 0.5).from(isMobile ? productAbout : productAbout.words, 0.8, {
                     duration: 1.5,
                     opacity: 0,
                     ease: "power4",
@@ -1554,39 +1654,6 @@ if(pageName === 'products') {
                     ease: "power4",
                     stagger: 0.5
                 }, 1);
-
-                if(isMobile){
-                    gsap.timeline({
-                        scrollTrigger: {
-                            trigger: $('.product_details__ingredients-wrap'),
-                            start: ()=>"center+=10% center",
-                            end: ()=>"bottom bottom",
-                            // markers: true,
-                            // toggleActions: "play none play reverse",
-                            onEnter: () => {
-                                // let imageHeight = $('.product_img img').innerHeight(), padHeight = 52;
-                                // let topOffset = (document.querySelector('.product_img img').getBoundingClientRect().top / 2) + document.querySelector('.product_details__ingredients-wrap').getBoundingClientRect().top + imageHeight + padHeight;
-                                // let topOffset = $('.section__product-page_product-details').offset().top;
-                                // console.log(document.querySelector('.product_img img').getBoundingClientRect().top / 2);
-                                $('.product_img').addClass('stop');
-                                // $('.product_img').css({
-                                //     // top: "calc(28vh + "+topOffset+"px)"
-                                //     top: +topOffset+"px"
-                                // });
-                            },
-                            onLeaveBack: () => {
-                                $('.product_img').removeClass('stop');
-                                // $('.product_img').css({
-                                //     top: "0px"
-                                // });
-                            }
-                        }
-                    })
-                    // .to($('.product_img'), 0.1, {
-                    //     opacity: 0,
-                    //     zIndex: -1
-                    // });
-                }
             } else {
                 let productReviewHeadings = new SplitType($(productDetailsWrap).find('.product_reviews__info h3'), { types: 'chars' });
                 gsap.timeline({
@@ -1678,6 +1745,9 @@ if(pageName === 'products') {
     });
 }
 
+/**
+ * In-the-news page specific scripts
+ */
 if(pageName === 'news-page') {
     let newsBannerHeadings = gsap.utils.toArray('.section__in-the-news_hero h1');
     let newsBannerMainTl = gsap.timeline({
@@ -1701,45 +1771,56 @@ if(pageName === 'news-page') {
         }, index * 0.25);
     });
 
-    const newsArticlesIntro =  new SplitType($('.section__in-the-news_articles_intro h2'), { types: 'lines' });    
-    let tlNewsArticlesIntroText = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".section__in-the-news_articles",
-            start: ()=>"top center+=20%",
-            end: ()=>"bottom bottom",
-            // markers: true,
-            // toggleActions: "play none play reverse"
-        }
-    });
-    tlNewsArticlesIntroText.from(newsArticlesIntro.lines, .8, {
-        opacity: 0,
-        stagger: .12,
-    }).from('.news_articles .swiper-wrapper', .8, {
-        opacity: 0,
-        y: 50,
-    }, 0.5);
+    gsapMatchMedia.add({
+        isDesktop: `(min-width: ${breakPointDesktopLarge + 1}px)`,
+        isDesktopMedium: `(min-width: ${breakPointLaptopLarge + 1}px)`,
+        isLaptopLarge: `(min-width: ${breakPointLaptopLarge}px)`,
+        isLaptopMedium: `(min-width: ${breakPointLaptopMedium}px)`,
+        isTabMedium: `(min-width: ${breakPointTabMedium}px)`,
+        isMobile: `(max-width: ${breakPointMobile}px)`,
+    }, (context) => {
+        let { isLaptopMedium } = context.conditions;
 
-    const newsNumbersIntro =  new SplitType($('.section__in-the-news_numbers_intro h1'), { types: 'words' });    
-    let tlNewsNumbersIntroText = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".section__in-the-news_numbers",
-            start: ()=>"top center+=20%",
-            end: ()=>"bottom bottom",
-            // markers: true,
-            // toggleActions: "play none play reverse"
-        }
+        const newsArticlesIntro =  isLaptopMedium ? new SplitType($('.section__in-the-news_articles_intro h2'), { types: 'lines' }) : $('.section__in-the-news_articles_intro h2');    
+        let tlNewsArticlesIntroText = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".section__in-the-news_articles",
+                start: ()=>"top center+=20%",
+                end: ()=>"bottom bottom",
+                // markers: true,
+                // toggleActions: "play none play reverse"
+            }
+        });
+        tlNewsArticlesIntroText.from(isLaptopMedium ? newsArticlesIntro.lines : newsArticlesIntro, .8, {
+            opacity: 0,
+            stagger: .12,
+        }).from('.news_articles .swiper-wrapper', .8, {
+            opacity: 0,
+            y: 50,
+        }, 0.5);
+
+        const newsNumbersIntro =  new SplitType($('.section__in-the-news_numbers_intro h1'), { types: 'words' });    
+        let tlNewsNumbersIntroText = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".section__in-the-news_numbers",
+                start: ()=>"top center+=20%",
+                end: ()=>"bottom bottom",
+                // markers: true,
+                // toggleActions: "play none play reverse"
+            }
+        });
+        tlNewsNumbersIntroText.from(newsNumbersIntro.words, .8, {
+            duration: 1.5,
+            xPercent: 50,
+            opacity: 0,
+            ease: "power4",
+            stagger: 0.1
+        }, 0.5).from('.section__in-the-news_number', .8, {
+            opacity: 0,
+            y: 40,
+            stagger: .1,
+        }, 1);
     });
-    tlNewsNumbersIntroText.from(newsNumbersIntro.words, .8, {
-        duration: 1.5,
-        xPercent: 50,
-        opacity: 0,
-        ease: "power4",
-        stagger: 0.1
-    }, 0.5).from('.section__in-the-news_number', .8, {
-        opacity: 0,
-        y: 40,
-        stagger: .1,
-    }, 1);
 
     let newsPageSwiper = new Swiper(".swiper-container", {
         slidesPerView: 'auto',
@@ -1757,10 +1838,10 @@ if(pageName === 'news-page') {
             1024: {
                 spaceBetween: 40,
             },
-            768: {
+            740: {
                 spaceBetween: 30,
             },
-            375: {
+            320: {
                 direction: 'horizontal',
                 spaceBetween: 15,
             },
@@ -1772,6 +1853,9 @@ if(pageName === 'news-page') {
     });
 }
 
+/**
+ * About page specific scripts
+ */
 if(pageName === 'about-page') {
     const aboutBannerHeading =  new SplitType($('.section__about-page_hero-title h1'), { types: 'chars' });
     
@@ -1990,6 +2074,9 @@ if(pageName === 'about-page') {
 
 }
 
+/**
+ * B2B page specific scripts
+ */
 if(pageName === 'b2b-page') {
     const b2bBannerHeading =  new SplitType($('.section__b2b-page_hero-title h1'), { types: 'chars' });    
     let tlShopBannerText = gsap.timeline({
@@ -2111,6 +2198,9 @@ if(pageName === 'b2b-page') {
     // requestAnimationFrame(rafNumbersContainer);    
 }
 
+/**
+ * Cart page specific scripts
+ */
 if(pageName === 'cart-page') {
     const cartHeading =  new SplitType($('.section__cart-page-items__wrap .title h1'), { types: 'chars' });    
     let tlCartTitle = gsap.timeline({
@@ -2133,9 +2223,18 @@ if(pageName === 'cart-page') {
         stagger: {
             amount: .3
         },
-    }, 3.5).from('.section__cart-page-items__order-summary', 0.8, {
+    }, 3.5).from('.continue-order-button', 0.8, {
         opacity: 0,
     }, 4);
+
+    $('.continue-order_btn').click(function(e) {
+        e.preventDefault();
+        $('.section__cart-page-items__order-summary').addClass('show');
+    });
+    $('.close_order-summary').click(function(e) {
+        e.preventDefault();
+        $('.section__cart-page-items__order-summary').removeClass('show');
+    });
 
     // Order Summary Slider
     let orderSummarySwiper = new Swiper(".order-summary", {
@@ -2173,6 +2272,8 @@ if(pageName === 'cart-page') {
         $('.slide-wrap-payment').addClass('confirmed');
         $('.card-info__wrap').addClass('confirmed');
         $('.order-confirmation').addClass('confirmed');
+        $('.section__cart-page-items__order-summary').addClass('confirmed');
+        $('.swiper-pagination-bullet').removeClass('swiper-pagination-bullet-complete swiper-pagination-bullet-active');
     });
 
     const cleaveZen = window.cleaveZen
@@ -2320,6 +2421,9 @@ if(pageName === 'cart-page') {
     initSpinners();
 }
 
+/**
+ * Profile pages specific scripts
+ */
 if(pageName === 'profile-page') {
     let productImagesSwiper = new Swiper(".product-images-swiper", {
         slidesPerView: 'auto',

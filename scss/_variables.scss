@@ -1,3 +1,6 @@
+/**
+* Background Color pallette
+**/
 $color-bg-white: #FFFFFF;
 $color-bg-black: #000000;
 $color-bg-blue: #00BCE4;
@@ -18,7 +21,16 @@ $color-bg-violet-blue: #3845ad;
 $color-bg-denim-blue: #1c5cc7;
 $color-bg-dark-orchid: #ac21ba;
 $color-bg-dollar-bill-green: #85c763;
+$color-bg-deep-lemon: #f2c41c;
+$color-bg-amethyst: #8c5cc9;
+$color-bg-picton-blue: #39bae4;
+$color-bg-vivid-tangelo: #ed7124;
+$color-bg-byzantium: #792e66;
+$color-bg-ufo-green: #48c155;
 :root {
+    /**
+    * Text/Elements Color pallette
+    **/
     --white-pure: #ffffff;
     --white-smoke: #e7e5dd;
     --white-80pc: #efefef;    
@@ -63,8 +75,10 @@ $color-bg-dollar-bill-green: #85c763;
     --color-social-instagram: #c32aa3;
     --color-social-whatsapp: #4dc247;
     --color-social-linkedin: #0a66c2;
-    --color-social-twitter: #1da1f2;    
-    // --gradient-macha: linear-gradient(114.41deg,var(--color-shockingly-green)20.74%,var(--color-lt-green)65.5%);
+    --color-social-twitter: #1da1f2;
+    /**
+    * Animation Easing Functions
+    **/
     --ease-in-quad: cubic-bezier(0.55,0.085,0.68,0.53);
     --ease-in-cubic: cubic-bezier(0.55,0.055,0.675,0.19);
     --ease-in-quart: cubic-bezier(0.895,0.03,0.685,0.22);

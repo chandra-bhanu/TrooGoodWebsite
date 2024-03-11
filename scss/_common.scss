@@ -1,8 +1,9 @@
+// styles for Into (Loading Animation) STARTS
 .intro_wrapper {
     // min-height: -webkit-fill-available;
-    height: 100dvh;
-    width: 100dvw;
-    min-height: 100dvh;
+    height: 100%;
+    width: 100vw;
+    min-height: 100vh;
     background-color: var(--white-80pc);
     position: fixed;
     display: flex;
@@ -10,7 +11,7 @@
     align-items: center;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 100;
     overflow: hidden;
     svg {
         width: 95vw;
@@ -44,10 +45,10 @@
         transform: translate3d(0, calc(5% + 100%), 0);
     }
     .intro_relative {        
-        width: 100dvw;    
-        height: 100dvh;
+        width: 100vw;    
+        height: 100vh;
         min-height: -webkit-fill-available;
-        min-height: 100dvh;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -60,31 +61,92 @@
         transform: translateZ(0);
     }
 }
+// styles for Into (Loading Animation) ENDS
 
+// Common Background Classes STARTS
 .bg-blue{
     background-color: $color-bg-blue;
 }
-
 .bg-brown {
     background-color: $color-bg-brown;
 }
-
 .bg-green {
     background-color: $color-bg-green;
 }
-
 .bg-yellow {
     background-color: $color-bg-yellow;
 }
-
 .bg-light-yellow {
     background-color: $color-bg-yellow-light
 }
+.bg-orange{
+    background-color: $color-bg-orange;
+}
+.bg-magenta{
+    background-color: $color-bg-magenta;
+}
+.bg-red{
+    background-color: $color-bg-red;
+}
+.bg-deep-lemon{
+    background-color: $color-bg-deep-lemon;
+}
+.bg-amethyst{
+    background-color: $color-bg-amethyst;
+}
+.bg-picton-blue{
+    background-color: $color-bg-picton-blue;
+}
+.bg-vivid-tangelo{
+    background-color: $color-bg-vivid-tangelo;
+}
+.bg-byzantium{
+    background-color: $color-bg-byzantium;
+}
+.bg-ufo-green{
+    background-color: $color-bg-ufo-green;
+}
+// Common Background Classes ENDS
 
+// Common element styles STARTS
 ul{
     margin-bottom: 0;
     padding: 0;
 }
+strong{
+    font-weight: bold;
+}
+// Common element styles ENDS
+
+// Section styles STARTS
+.fh_section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    &.h_auto{
+        min-height: 100vh;
+        height: auto;
+    }
+    @include xl {
+        height: 80vh;
+    }
+    @include sm {
+        height: 95vh;
+    }
+}
+.section_padding{
+    padding: 50px 100px;
+    @include xxl {
+        padding: 50px 60px;
+    }
+    @include breakpoint(1366) {
+        padding: 35px 90px;
+    }
+}
+// Section styles ENDS
+
+// Button styles STARTS
 .shop_btn {
     padding: 6px 10px;
     // background-color: $color-bg-yellow;
@@ -98,52 +160,6 @@ ul{
         padding: 10px 20px;
     }
 }
-
-.fh_section{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    &.h_auto{
-        min-height: 100vh;
-        height: auto;
-        // overflow-y: auto;
-    }
-    @include xl {
-        height: 80vh;
-    }
-}
-
-.bg_green{
-    background-color: $color-bg-green;
-}
-
-.bg_orange{
-    background-color: $color-bg-orange;
-}
-
-.bg_magenta{
-    background-color: $color-bg-magenta;
-}
-
-.bg_red{
-    background-color: $color-bg-red;
-}
-
-.section_padding{
-    padding: 50px 100px;
-    @include xxl {
-        padding: 50px 60px;
-    }
-    @include breakpoint(1366) {
-        padding: 35px 90px;
-    }
-}
-
-strong{
-    font-weight: bold;
-}
-
 .common_btn{
     position: relative;
     padding: 15px 30px;
@@ -193,18 +209,6 @@ strong{
         padding: 8px 20px;
     }    
 }
-
-// .spacer{
-//     position: absolute;
-//     top: -5vh;
-//     width: 100%;
-//     height: 10vh;
-//     background-color: #52190f;
-//     .upper, .lower{
-//         height: 5vh;
-//     }
-// }
-
 .button{
     background: var(--button-fill);
     color: var(--button-color);
@@ -274,3 +278,481 @@ strong{
         }
     }
 }
+// Button Styles ENDS
+
+// Common Footer styles STARTS
+.footer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: calc(85px - 20px) 40px 40px;
+    @include breakpoint-dpr2-up {
+        padding: calc(75px - 20px) 40px 40px;
+    }
+    @include breakpoint-dpr-down(1540, 2) {
+        padding: calc(75px - 20px) 40px 30px;
+    }
+    @include xxl {
+        padding: 85px 40px 30px;
+    }
+    @include breakpoint(1366) {
+        padding: 55px 40px 20px;
+    }
+    @include xl {
+        padding: 40px 30px 30px;
+    }
+    @include lg {
+        padding: 30px 20px 20px;
+    }
+    &_head{
+        font-family: $f_black;
+        text-transform: uppercase;
+        font-size: 88px;
+        line-height: 72px;
+        margin-bottom: 20px;
+        @include breakpoint-dpr-down(1540, 2) {
+            font-size: 78px;
+            line-height: 62px;
+            margin-bottom: 15px;
+        }
+        @include breakpoint(1366) {
+            font-size: 64px;
+            line-height: 50px;
+            margin-bottom: 12px;
+        }
+        @include xl {
+            font-size: 60px;
+            line-height: 48px;
+        }
+        @include lg {
+            font-size: 52px;
+            line-height: 44px;
+        }
+        @include sm {
+            font-size: 30px;
+            line-height: 34px;
+        }
+        @include xxsm {
+            font-size: 28px;
+            line-height: 34px;
+        }
+    }
+    &_sub-head{
+        font-family: $f_regular;
+        font-size: 34px;
+        line-height: 32px;
+        @include breakpoint-dpr-down(1540, 2) {
+            font-size: 32px;
+            line-height: 28px;
+        }
+        @include breakpoint(1366) {
+            font-size: 26px;
+            line-height: 20px;
+        }
+        @include xl {
+            font-size: 24px;
+            line-height: 18px;
+        }
+        @include lg {
+            font-size: 20px;
+            line-height: 14px; 
+        }
+        @include sm {
+            font-size: 18px;
+            line-height: 24px;
+        }
+        @include xxsm {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+    hr{
+        position: relative;
+        height: 10px;
+        border: none;
+        opacity: 1;
+        background-color: var(--black-pure);
+        margin: 60px 0px 60px;
+        @include breakpoint-dpr2-up {
+            margin: 50px 0px 50px;
+        }
+        @include breakpoint-dpr-down(1540, 2) {
+            margin: 40px 0px 50px;
+        }
+        @include xl {
+            margin: 30px 0px 40px;
+        }
+        @include lg {
+            margin: 20px 0px 30px;
+        }
+        @include md {
+            height: 5px;
+        }
+    }
+    &_links{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 45px;
+        padding: 0px 0px 50px;
+        @include breakpoint(1366) {
+            grid-row-gap: 25px;
+            padding: 0px 0px 40px;
+        }
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0px 0px 30px;
+        }
+        @include sm {
+            grid-template-columns: repeat(1, 1fr);
+            padding: 0px 0px 40px;
+        }
+        .link{
+            a{
+                font-family: $f_semibold;
+                font-size: 22px;
+                line-height: 26px;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+                color: var(--white-pure);
+                padding: 10px 35px;
+                box-shadow: inset 10px 0 0 0 var(--white-pure);
+                @include breakpoint(1366) {
+                    font-size: 18px;
+                    line-height: 20px;
+                    padding: 5px 35px;
+                }
+                @include xl {
+                    padding: 5px 24px;
+                }
+                @include lg {
+                    font-size: 16px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+    &_logo_wrap{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding: 10px 40px;
+        @include breakpoint(1366) {
+            padding: 10px 30px;
+        }
+        @include xl {
+            padding: 10px 0px;
+        }
+        @include sm {
+            display: grid;
+            grid-row-gap: 20px;
+        }
+        .logo{
+            svg{
+                width: 655px;
+                height: auto;
+                @include breakpoint-dpr-down(1540, 2) {
+                    width: 605px;
+                }
+                @include breakpoint(1366) {
+                    width: 485px;
+                }
+                @include lg {
+                    width: 385px;
+                }
+                @include sm {
+                    width: 355px;
+                }
+                @include xxsm {
+                    width: 325px;
+                }
+            }
+        }
+        .footer_social__icons{
+            width: 55px;
+            height: 55px;
+            line-height: 35px;
+            margin: 0 20px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            float: left;
+            transition: all 0.5s ease;
+            @include breakpoint-dpr-down(1540, 2) {
+                width: 50px;
+                height: 50px;
+            }
+            @include xxl {
+                width: 48px;
+                height: 48px;
+                margin: 0 16px;
+            }
+            @include breakpoint(1366) {
+                width: 40px;
+                height: 40px;
+                margin: 0 14px;
+            }
+            &:last-child{
+                margin: 0px 0px 0px 20px;
+                @include xxl {
+                    margin: 0px 0px 0px 14px;
+                }
+                @include breakpoint(1366) {
+                    margin: 0px 0px 0px 10px;
+                }
+            }
+            &.facebook{
+                i{
+                    color: var(--white-pure);
+                    font-size: 55px;
+                    background-color: var(--blue);
+                    border-radius: 50%;
+                    @include xxl {
+                        font-size: 48px;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 40px;
+                    }
+                }
+                border-radius: 50%;
+                &:hover{
+                    box-shadow: 0 0 20px var(--color-social-facebook);
+                    transition: all 0.5s ease;
+                    i {
+                        color: var(--white-pure);
+                        background-color: var(--color-social-facebook);
+                        text-shadow: 0 0 80px var(--white-pure);
+                        transition: all 0.5s ease;
+                    }
+                }
+            }
+            &.instagram{
+                @include breakpoint-dpr-down(1540, 2) {
+                    width: 55px;
+                    height: 55px;
+                }
+                @include xxl {
+                    width: 50px;
+                    height: 50px;
+                }
+                @include breakpoint(1366) {
+                    width: 40px;
+                    height: 40px;
+                }
+                i{
+                    margin-top: 7px;
+                    color: var(--blue);
+                    font-size: 40px;
+                    background-color: var(--white-pure);
+                    border-radius: 50%;
+                    @include breakpoint-dpr-down(1540, 2) {
+                        margin-top: 9px;
+                        font-size: 36px;
+                    }
+                    @include xxl {
+                        margin-top: 7px;
+                        font-size: 35px;
+                    }
+                    @include breakpoint(1366) {
+                        margin-top: 7px;
+                        font-size: 28px;
+                    }
+                }
+                border-radius: 50%;
+                background-color: var(--white-pure);
+                &:hover{
+                    box-shadow: 0 0 20px var(--color-social-instagram);
+                    transition: all 0.5s ease;
+                    i {
+                        color: var(--color-social-instagram);
+                        background-color: var(--white-pure);
+                        text-shadow: 0 0 80px var(--white-pure);
+                        transition: all 0.5s ease;
+                    }
+                }
+            }
+            &.whatsapp{
+                i{
+                    color: var(--white-pure);
+                    font-size: 55px;
+                    border-radius: 50%;
+                    @include breakpoint-dpr-down(1540, 2) {
+                        font-size: 50px;
+                    }
+                    @include xxl {
+                        font-size: 48px;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 40px;
+                    }
+                }
+                border-radius: 50%;
+                &:hover{
+                    background-color: var(--white-pure);
+                    box-shadow: 0 0 60px var(--color-social-whatsapp);
+                    transition: all 0.5s ease;
+                    i {
+                        color: var(--color-social-whatsapp);
+                        text-shadow: 0 0 80px var(--white-pure);
+                        transition: all 0.5s ease;
+                    }
+                }
+            }
+            &.linkedin{
+                i{
+                    margin-top: 8px;
+                    color: var(--white-pure);
+                    font-size: 42px;
+                    border-radius: 50%;
+                    @include breakpoint-dpr-down(1540, 2) {
+                        margin-top: 6px;
+                        font-size: 40px;
+                    }
+                    @include xxl {
+                        margin-top: 7px;
+                        font-size: 38px;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 30px;
+                    }
+                }
+                border-radius: 50%;
+                background-color: var(--blue);
+                &:hover{
+                    background-color: var(--white-pure);
+                    box-shadow: 0 0 60px var(--color-social-linkedin);
+                    transition: all 0.5s ease;
+                    i {
+                        color: var(--color-social-linkedin);
+                        text-shadow: 0 0 80px var(--white-pure);
+                        transition: all 0.5s ease;
+                    }
+                }
+            }
+            &.twitter{
+                i{
+                    margin-top: 8px;
+                    color: var(--white-pure);
+                    font-size: 40px;
+                    border-radius: 50%;
+                    @include xxl {
+                        font-size: 38px;
+                    }
+                    @include breakpoint(1366) {
+                        font-size: 30px;
+                    }
+                }
+                border-radius: 50%;
+                background-color: var(--blue);
+                &:hover{
+                    background-color: var(--white-pure);
+                    box-shadow: 0 0 60px var(--color-social-twitter);
+                    transition: all 0.5s ease;
+                    i {
+                        color: var(--color-social-twitter);
+                        text-shadow: 0 0 80px var(--white-pure);
+                        transition: all 0.5s ease;
+                    }
+                }
+            }
+            .fab{
+                transition: all 0.5s ease;
+            }
+        }
+    }
+    &_address-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        @include breakpoint(1366) {
+            padding: 10px 30px;
+        }
+        @include xl {
+            padding: 10px 0px;
+        }
+        @include lg {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 30px;
+            padding: 30px 0px;
+        }
+        @include sm {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .address{
+            color: var(--white-pure);
+            @include xl {
+                padding-right: 30px;
+            }
+            @include lg {
+                padding-right: 0px;
+            }
+            &:last-child{
+                @include lg {
+                    grid-column: 1/3;
+                }
+                @include sm {
+                    grid-column: auto;
+                }
+            }
+            h2{
+                font-family: $f_semibold;
+                font-size: 24px;
+                line-height: 28px;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                @include breakpoint(1366) {
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+                @include lg {
+                    font-size: 22px;
+                    line-height: 24px;
+                }
+                @include xxsm {
+                    font-size: 20px;
+                    line-height: 22px;
+                }
+                br{
+                    @include lg {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+            }
+            p{
+                font-family: $f_regular;
+                font-size: 18px;
+                line-height: 10px;
+                letter-spacing: 0.02em;
+                @include breakpoint(1366) {
+                    font-size: 14px;
+                    line-height: 5px;
+                }
+                @include lg {
+                    font-size: 16px;
+                    line-height: 18px;
+                    margin-bottom: 8px;
+                }                
+                a {
+                    font-family: $f_regular;
+                    font-size: 18px;
+                    color: var(--white-pure);
+                    text-decoration: none;
+                    letter-spacing: 0.02em;
+                    @include lg {
+                        font-size: 16px;
+                    }
+                }
+            }
+            &.pad-right{
+                padding-right: 50px;
+                @include lg {
+                    padding-right: 80px;
+                }
+            }
+        }
+    }
+}
+// Common Footer ENDS
